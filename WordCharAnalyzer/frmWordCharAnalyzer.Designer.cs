@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.txtGetWord = new System.Windows.Forms.TextBox();
-            this.txtGetChar = new System.Windows.Forms.TextBox();
+            this.btnCharSearch = new System.Windows.Forms.TextBox();
             this.btnWordCount = new System.Windows.Forms.Button();
             this.btnLetterCount = new System.Windows.Forms.Button();
             this.btnWordList = new System.Windows.Forms.Button();
@@ -43,13 +43,13 @@
             this.txtGetWord.TabIndex = 0;
             this.txtGetWord.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGetWord_KeyPress);
             // 
-            // txtGetChar
+            // btnCharSearch
             // 
-            this.txtGetChar.Location = new System.Drawing.Point(134, 99);
-            this.txtGetChar.MaxLength = 1;
-            this.txtGetChar.Name = "txtGetChar";
-            this.txtGetChar.Size = new System.Drawing.Size(176, 20);
-            this.txtGetChar.TabIndex = 1;
+            this.btnCharSearch.Location = new System.Drawing.Point(134, 99);
+            this.btnCharSearch.Name = "btnCharSearch";
+            this.btnCharSearch.Size = new System.Drawing.Size(176, 20);
+            this.btnCharSearch.TabIndex = 1;
+            this.btnCharSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGetChar_KeyPress);
             // 
             // btnWordCount
             // 
@@ -59,6 +59,7 @@
             this.btnWordCount.TabIndex = 2;
             this.btnWordCount.Text = "تعداد کلمه";
             this.btnWordCount.UseVisualStyleBackColor = true;
+            this.btnWordCount.Click += new System.EventHandler(this.btnWordCount_Click);
             // 
             // btnLetterCount
             // 
@@ -86,7 +87,7 @@
             this.Controls.Add(this.btnWordList);
             this.Controls.Add(this.btnLetterCount);
             this.Controls.Add(this.btnWordCount);
-            this.Controls.Add(this.txtGetChar);
+            this.Controls.Add(this.btnCharSearch);
             this.Controls.Add(this.txtGetWord);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -98,7 +99,7 @@
         #endregion
 
         private System.Windows.Forms.TextBox txtGetWord;
-        private System.Windows.Forms.TextBox txtGetChar;
+        private System.Windows.Forms.TextBox btnCharSearch;
         private System.Windows.Forms.Button btnWordCount;
         private System.Windows.Forms.Button btnLetterCount;
         private System.Windows.Forms.Button btnWordList;
