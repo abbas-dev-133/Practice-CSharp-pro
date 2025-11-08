@@ -43,21 +43,25 @@
             // 
             // txtInputText
             // 
+            this.txtInputText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtInputText.Location = new System.Drawing.Point(12, 15);
             this.txtInputText.Multiline = true;
             this.txtInputText.Name = "txtInputText";
             this.txtInputText.Size = new System.Drawing.Size(261, 99);
             this.txtInputText.TabIndex = 0;
-            this.txtInputText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtInputText_KeyPress);
+            this.txtInputText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearchChar_KeyPress);
+            this.txtInputText.MouseEnter += new System.EventHandler(this.txtGetWord_MouseEnter);
             // 
             // txtSearchChar
             // 
+            this.txtSearchChar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSearchChar.Location = new System.Drawing.Point(12, 120);
             this.txtSearchChar.MaxLength = 1;
             this.txtSearchChar.Name = "txtSearchChar";
             this.txtSearchChar.Size = new System.Drawing.Size(261, 20);
             this.txtSearchChar.TabIndex = 1;
             this.txtSearchChar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearchChar_KeyPress);
+            this.txtSearchChar.MouseEnter += new System.EventHandler(this.txtCharSearch_MouseEnter);
             // 
             // btnCountWordsContaining
             // 
@@ -91,6 +95,7 @@
             // 
             // txtLetterCountResult
             // 
+            this.txtLetterCountResult.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtLetterCountResult.Location = new System.Drawing.Point(96, 235);
             this.txtLetterCountResult.Name = "txtLetterCountResult";
             this.txtLetterCountResult.ReadOnly = true;
@@ -99,6 +104,7 @@
             // 
             // txtWordCountResult
             // 
+            this.txtWordCountResult.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtWordCountResult.Location = new System.Drawing.Point(96, 150);
             this.txtWordCountResult.Name = "txtWordCountResult";
             this.txtWordCountResult.ReadOnly = true;

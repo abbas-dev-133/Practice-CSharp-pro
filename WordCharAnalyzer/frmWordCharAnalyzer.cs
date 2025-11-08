@@ -82,11 +82,6 @@ namespace WordCharAnalyzer
         {
             ttCharSearch.SetToolTip(txtSearchChar, "لطفا یک حرف وارد نمایید");
         }
-        private void txtInputText_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
-                e.Handled = true;
-        }
 
         private void txtSearchChar_KeyPress(object sender, KeyPressEventArgs e)
         {
