@@ -12,9 +12,40 @@ namespace PersonManagement
 {
     public partial class frmPerson : Form
     {
+        public List<Person> people = new List<Person>();
         public frmPerson()
         {
             InitializeComponent();
+        }
+
+        void FillDGV()
+        {
+            dgvShowPerson.DataSource = null;
+            dgvShowPerson.DataSource = people.ToList();
+        }
+
+        private void btnInsert_Click(object sender, EventArgs e)
+        {
+            var frm = new frmNewPerson();
+            frm.Text= "Insert New Person";
+            frm.ShowDialog();
+            FillDGV();
+
+
+        }
+
+        private void frmPerson_Load(object sender, EventArgs e)
+        {
+            FillDGV();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (dgvShowPerson.CurrentRow != null)
+            {
+                people.RemoveAt(dgvShowPerson.CurrentRow.Index);
+                FillDGV();
+            }
         }
     }
 }
