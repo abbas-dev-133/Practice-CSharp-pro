@@ -34,9 +34,9 @@
             this.lblFamilyName = new System.Windows.Forms.Label();
             this.lblNationalCode = new System.Windows.Forms.Label();
             this.txtFamilyName = new System.Windows.Forms.TextBox();
-            this.txtNationalCode = new System.Windows.Forms.TextBox();
             this.rbMale = new System.Windows.Forms.RadioButton();
             this.rbFemale = new System.Windows.Forms.RadioButton();
+            this.txtNationalCode = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // lblName
@@ -57,7 +57,7 @@
             this.btnSave.Location = new System.Drawing.Point(74, 266);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(108, 35);
-            this.btnSave.TabIndex = 1;
+            this.btnSave.TabIndex = 5;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -69,7 +69,8 @@
             this.txtName.Location = new System.Drawing.Point(74, 62);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(164, 26);
-            this.txtName.TabIndex = 2;
+            this.txtName.TabIndex = 0;
+            this.txtName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtName_KeyPress);
             // 
             // lblFamilyName
             // 
@@ -78,9 +79,9 @@
             this.lblFamilyName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFamilyName.Location = new System.Drawing.Point(244, 111);
             this.lblFamilyName.Name = "lblFamilyName";
-            this.lblFamilyName.Size = new System.Drawing.Size(96, 20);
+            this.lblFamilyName.Size = new System.Drawing.Size(100, 20);
             this.lblFamilyName.TabIndex = 0;
-            this.lblFamilyName.Text = "FamilyName";
+            this.lblFamilyName.Text = "Family Name";
             // 
             // lblNationalCode
             // 
@@ -100,16 +101,8 @@
             this.txtFamilyName.Location = new System.Drawing.Point(74, 108);
             this.txtFamilyName.Name = "txtFamilyName";
             this.txtFamilyName.Size = new System.Drawing.Size(164, 26);
-            this.txtFamilyName.TabIndex = 2;
-            // 
-            // txtNationalCode
-            // 
-            this.txtNationalCode.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.txtNationalCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNationalCode.Location = new System.Drawing.Point(74, 162);
-            this.txtNationalCode.Name = "txtNationalCode";
-            this.txtNationalCode.Size = new System.Drawing.Size(164, 26);
-            this.txtNationalCode.TabIndex = 2;
+            this.txtFamilyName.TabIndex = 1;
+            this.txtFamilyName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtName_KeyPress);
             // 
             // rbMale
             // 
@@ -130,19 +123,28 @@
             this.rbFemale.Location = new System.Drawing.Point(158, 216);
             this.rbFemale.Name = "rbFemale";
             this.rbFemale.Size = new System.Drawing.Size(80, 24);
-            this.rbFemale.TabIndex = 3;
+            this.rbFemale.TabIndex = 4;
             this.rbFemale.TabStop = true;
             this.rbFemale.Text = "Female";
             this.rbFemale.UseVisualStyleBackColor = true;
+            // 
+            // txtNationalCode
+            // 
+            this.txtNationalCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNationalCode.Location = new System.Drawing.Point(74, 170);
+            this.txtNationalCode.Mask = "0000000000";
+            this.txtNationalCode.Name = "txtNationalCode";
+            this.txtNationalCode.Size = new System.Drawing.Size(164, 26);
+            this.txtNationalCode.TabIndex = 2;
             // 
             // frmNewPerson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(428, 390);
+            this.Controls.Add(this.txtNationalCode);
             this.Controls.Add(this.rbFemale);
             this.Controls.Add(this.rbMale);
-            this.Controls.Add(this.txtNationalCode);
             this.Controls.Add(this.txtFamilyName);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.btnSave);
@@ -166,8 +168,8 @@
         private System.Windows.Forms.Label lblFamilyName;
         private System.Windows.Forms.Label lblNationalCode;
         private System.Windows.Forms.TextBox txtFamilyName;
-        private System.Windows.Forms.TextBox txtNationalCode;
         private System.Windows.Forms.RadioButton rbMale;
         private System.Windows.Forms.RadioButton rbFemale;
+        private System.Windows.Forms.MaskedTextBox txtNationalCode;
     }
 }

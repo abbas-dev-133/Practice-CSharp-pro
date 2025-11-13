@@ -18,7 +18,7 @@ namespace PersonManagement
             InitializeComponent();
         }
 
-        void FillDGV()
+        public void FillDGV()
         {
             dgvShowPerson.DataSource = null;
             dgvShowPerson.DataSource = people.ToList();
@@ -27,7 +27,7 @@ namespace PersonManagement
         private void btnInsert_Click(object sender, EventArgs e)
         {
             var frm = new frmNewPerson();
-            frm.Text= "Insert New Person";
+            frm.Text = "Insert New Person";
             frm.ShowDialog();
             FillDGV();
 
@@ -43,9 +43,24 @@ namespace PersonManagement
         {
             if (dgvShowPerson.CurrentRow != null)
             {
-                people.RemoveAt(dgvShowPerson.CurrentRow.Index);
-                FillDGV();
+                var personToDelete = dgvShowPerson.CurrentRow.DataBoundItem as Person;
+                var result = MessageBox.Show(
+                $"آیا میخواهید {personToDelete.Name} را حذف کنید؟",
+                 "تایید حذف",
+                 MessageBoxButtons.YesNo,
+                 MessageBoxIcon.Warning
+                 );
+                if (result== DialogResult.Yes)
+                {
+                    people.Remove(personToDelete);
+                    FillDGV();
+                }
+                else
+                   MessageBox.Show("یک ردیف را انتخاب کنید", "خطا"
+                        , MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
+           
         }
     }
 }

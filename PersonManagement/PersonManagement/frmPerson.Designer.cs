@@ -42,7 +42,8 @@
             this.dgvShowPerson.Location = new System.Drawing.Point(0, 84);
             this.dgvShowPerson.Name = "dgvShowPerson";
             this.dgvShowPerson.Size = new System.Drawing.Size(534, 339);
-            this.dgvShowPerson.TabIndex = 0;
+            this.dgvShowPerson.TabIndex = 2;
+            this.dgvShowPerson.TabStop = false;
             // 
             // btnInsert
             // 
@@ -50,7 +51,7 @@
             this.btnInsert.Location = new System.Drawing.Point(434, 12);
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(75, 23);
-            this.btnInsert.TabIndex = 1;
+            this.btnInsert.TabIndex = 0;
             this.btnInsert.Text = "Insert";
             this.btnInsert.UseVisualStyleBackColor = true;
             this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);

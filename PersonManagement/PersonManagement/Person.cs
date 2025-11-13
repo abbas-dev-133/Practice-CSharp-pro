@@ -7,13 +7,19 @@ using System.Windows.Forms;
 
 namespace PersonManagement
 {
+    public enum GenderType
+    {
+        Male,
+        Female,
+        Unknown
+    }
     
     public class Person
     {
         public string Name { get; set; }
         public string FamilyName { get; set; }
         public string NationalCode { get; set; }
-        public string Gender { get; set; }
+        public GenderType Gender { get; set; }
 
 
     }
