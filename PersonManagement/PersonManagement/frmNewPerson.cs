@@ -12,46 +12,15 @@ namespace PersonManagement
 {
     public partial class frmNewPerson : Form
     {
-        bool ValidateInput(out string errorMessage)
-        {
-            errorMessage = string.Empty;
-
-            if (string.IsNullOrWhiteSpace(txtName.Text) ||
-                string.IsNullOrWhiteSpace(txtFamilyName.Text))
-            {
-                errorMessage = "لطفا همه فیلدها را پر کنید.";
-                return false;
-            }
-
-            if (!rbMale.Checked && !rbFemale.Checked)
-            {
-                errorMessage = "لطفا جنسیت را انتخاب کنید.";
-                return false;
-            }
-
-            if (string.IsNullOrWhiteSpace(txtNationalCode.Text) || txtNationalCode.Text.Length != 10)
-            {
-                errorMessage = "لطفا کد ملی معتبر ۱۰ رقمی وارد کنید.";
-                return false;
-            }
-
-            return true;
-        }
-
+        private Person people = new Person();
         public frmNewPerson()
         {
             InitializeComponent();
         }
-
+        
         private void btnSave_Click(object sender, EventArgs e)
         {
-            bool isValid = ValidateInput(out string errorMessage);
-            if (! isValid)
-            {
-                MessageBox.Show(errorMessage, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            var people = new Person();
+           
             people.Name = txtName.Text;
             people.FamilyName = txtFamilyName.Text;
             people.NationalCode = txtNationalCode.Text;
@@ -62,7 +31,12 @@ namespace PersonManagement
                 people.Gender = GenderType.Female;
             else
                 people.Gender = GenderType.Unknown;
-
+            var result = people.Validate();
+            if (!result.IsSuccess)
+            {
+                MessageBox.Show(result.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             var frmPerson= Application.OpenForms[nameof(FrmPerson)] as FrmPerson;
             if (frmPerson != null)
             {
