@@ -23,7 +23,7 @@ namespace PersonManagement
                 _isNew = true;
             }
 
-            this._person = person;
+            _person = person;
 
 
         }
