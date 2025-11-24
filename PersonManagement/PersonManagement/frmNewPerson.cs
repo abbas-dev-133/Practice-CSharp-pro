@@ -27,37 +27,47 @@ namespace PersonManagement
 
 
         }
-
-        private void btnSave_Click(object sender, EventArgs e)
+        private OperationResult ValidateForm()
         {
+            _person.Name = txtName.Text.Trim();
+            _person.FamilyName = txtFamilyName.Text.Trim();
+            _person.NationalCode = txtNationalCode.Text.Trim();
 
-            _person.Name = txtName.Text;
-            _person.FamilyName = txtFamilyName.Text;
-            _person.NationalCode = txtNationalCode.Text;
             if (rbMale.Checked)
                 _person.Gender = GenderType.Male;
             else if (rbFemale.Checked)
                 _person.Gender = GenderType.Female;
             else
                 _person.Gender = GenderType.Unknown;
-            var result = _person.Validate();
+
+            return _person.Validate();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
+            var result = ValidateForm();
+
             if (!result.IsSuccess)
             {
-                MessageBox.Show(result.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                AlertHelper.Eror(result.Message);
                 return;
             }
+
             var frmPerson = Application.OpenForms[nameof(FrmPerson)] as FrmPerson;
+
             if (frmPerson != null)
             {
                 if (_isNew)
+                {
                     frmPerson.persons.Add(_person);
+                }
 
                 frmPerson.FillDgv();
             }
-            this.Close();
 
-
-
+            DialogResult = DialogResult.OK;
+            Close();
         }
 
         private void txtName_KeyPress(object sender, KeyPressEventArgs e)

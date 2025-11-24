@@ -44,7 +44,7 @@ namespace PersonManagement
             if (dgvShowPerson.CurrentRow != null)
             {
                 var personToDelete = dgvShowPerson.CurrentRow.DataBoundItem as Person;
-                string questionText = $"آیا از حذف شخص انتخاب شده اطمینان دارید؟";
+                string questionText = $"آیا از {personToDelete.Name} اطمینان دارید؟";
                 var result =AlertHelper.Question(questionText);
                 if (result == DialogResult.Yes)
                 {

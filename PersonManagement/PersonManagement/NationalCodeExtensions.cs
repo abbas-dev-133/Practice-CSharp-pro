@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PersonManagement
 {
-    public static class NationalCodeValidator
+    public static class NationalCodeExtensions
     {
         public static OperationResult ValidNationalCode(this string nationalCode)
         {

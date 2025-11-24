@@ -60,7 +60,7 @@
     <Compile Include="FrmPerson.Designer.cs">
       <DependentUpon>FrmPerson.cs</DependentUpon>
     </Compile>
-    <Compile Include="NationalCodeValidator.cs" />
+    <Compile Include="NationalCodeExtensions.cs" />
     <Compile Include="OperationResult.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Program.cs" />
