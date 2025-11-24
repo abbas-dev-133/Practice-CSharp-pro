@@ -27,31 +27,30 @@ namespace PersonManagement
 		{
             
             var result = new OperationResult();
-            var isValidNationalCode = NationalCode.IsValidNationalCode();
+            var checkValidNationalCode = NationalCode.ValidNationalCode();
             if (string.IsNullOrWhiteSpace(Name) ||
              string.IsNullOrWhiteSpace(FamilyName))
             {
-                result.Message = "لطفا همه فیلدها را پر کنید.";
-                result.IsSuccess=false;
+
+                return OperationResult.Failed("لطفا همه فیلدها را پر کنید.");
             }
             else
-             if (!isValidNationalCode.IsSuccess)
-            {
-                result.IsSuccess = false;
-                result.Message = isValidNationalCode.Message;
+             if (!checkValidNationalCode.IsSuccess)
+            {  
+                return OperationResult.Failed(checkValidNationalCode.Message);
             }
            
             else
             if (Gender==GenderType.Unknown)
             {
-                result.Message = "لطفا جنسیت را انتخاب کنید.";
-                result.IsSuccess = false;
+             
+                return OperationResult.Failed("لطفا جنسیت را انتخاب کنید.");
             }
             else
             {
-                result.IsSuccess = true;
+               return OperationResult.Success("اطلاعات وارد شده معتبر است.");
             }
-            return result;
+          
         }
 
 

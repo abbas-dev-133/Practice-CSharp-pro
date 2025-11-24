@@ -44,12 +44,8 @@ namespace PersonManagement
             if (dgvShowPerson.CurrentRow != null)
             {
                 var personToDelete = dgvShowPerson.CurrentRow.DataBoundItem as Person;
-                var result = MessageBox.Show(
-                $"آیا میخواهید {personToDelete.Name} را حذف کنید؟",
-                 "تایید حذف",
-                 MessageBoxButtons.YesNo,
-                 MessageBoxIcon.Warning
-                 );
+                string questionText = $"آیا از حذف شخص انتخاب شده اطمینان دارید؟";
+                var result =AlertHelper.Question(questionText);
                 if (result == DialogResult.Yes)
                 {
                     persons.Remove(personToDelete);
@@ -57,28 +53,29 @@ namespace PersonManagement
                 }
             }
             else
-                MessageBox.Show("یک ردیف را انتخاب کنید", "خطا"
-                       , MessageBoxButtons.OK, MessageBoxIcon.Error);
+               AlertHelper.Eror("یک ردیف را انتخاب کنید");
 
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (dgvShowPerson.CurrentRow != null)
+            if (dgvShowPerson.CurrentRow == null)
+            {
+                AlertHelper.Eror("یک ردیف را انتخاب کنید");
+            }
+            else
             {
                 var personToEdit = dgvShowPerson.CurrentRow.DataBoundItem as Person;
                 var frm = new FrmNewPerson(personToEdit);
                 frm.Text = "Edit Person";
 
-                
 
-                DialogResult result= frm.ShowDialog();
+
+                DialogResult result = frm.ShowDialog();
                 if (result == DialogResult.OK)
                     FillDgv();
             }
-            else
-                MessageBox.Show("یک ردیف را انتخاب کنید", "خطا"
-             , MessageBoxButtons.OK, MessageBoxIcon.Error);
+
         }
     }
 }

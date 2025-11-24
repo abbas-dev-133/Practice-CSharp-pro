@@ -10,5 +10,20 @@ namespace PersonManagement
     {
         public bool IsSuccess { get; set; }
         public string Message { get; set; }
+        public static OperationResult Failed(string message)
+        {
+            return new OperationResult 
+            {
+                IsSuccess = false, Message = message 
+            };
+        }
+        public static OperationResult Success(string message)
+        {
+            return new OperationResult
+            {
+                IsSuccess = true,
+                Message = message
+            };
+        }
     }
 }
