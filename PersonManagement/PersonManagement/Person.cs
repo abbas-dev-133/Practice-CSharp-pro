@@ -26,7 +26,7 @@ namespace PersonManagement
 		public OperationResult Validate()
 		{
             
-            var result = new OperationResult();
+           
             var checkValidNationalCode = NationalCode.ValidNationalCode();
             if (string.IsNullOrWhiteSpace(Name) ||
              string.IsNullOrWhiteSpace(FamilyName))

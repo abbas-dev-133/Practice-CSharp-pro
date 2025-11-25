@@ -41,20 +41,21 @@ namespace PersonManagement
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (dgvShowPerson.CurrentRow != null)
+            if (dgvShowPerson.CurrentRow == null)
+            {
+                AlertHelper.Eror("یک ردیف را انتخاب کنید");
+            }
+            else
             {
                 var personToDelete = dgvShowPerson.CurrentRow.DataBoundItem as Person;
-                string questionText = $"آیا از {personToDelete.Name} اطمینان دارید؟";
-                var result =AlertHelper.Question(questionText);
+                string questionText = $"آیا از حذف  {personToDelete.Name} اطمینان دارید؟";
+                var result = AlertHelper.Question(questionText);
                 if (result == DialogResult.Yes)
                 {
                     persons.Remove(personToDelete);
                     FillDgv();
                 }
             }
-            else
-               AlertHelper.Eror("یک ردیف را انتخاب کنید");
-
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
