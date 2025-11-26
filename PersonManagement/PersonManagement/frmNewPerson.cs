@@ -7,67 +7,54 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace PersonManagement
 {
     public partial class FrmNewPerson : Form
     {
-        private Person _person;
-        private bool _isNew = false;
-        public FrmNewPerson(Person person = null)
+        PersonManager personManager;
+        public Person Person {  get; set; }
+        public FrmNewPerson()
         {
+            personManager = new PersonManager();
             InitializeComponent();
-            if (person == null)
-            {
-                person = new Person();
-                _isNew = true;
-            }
-
-            _person = person;
-
-
         }
-        private OperationResult ValidateForm()
+        private void frmNewPerson_Load(object sender, EventArgs e)
         {
-            _person.Name = txtName.Text.Trim();
-            _person.FamilyName = txtFamilyName.Text.Trim();
-            _person.NationalCode = txtNationalCode.Text.Trim();
-
-            if (rbMale.Checked)
-                _person.Gender = GenderType.Male;
-            else if (rbFemale.Checked)
-                _person.Gender = GenderType.Female;
-            else
-                _person.Gender = GenderType.Unknown;
-
-            return _person.Validate();
+            if(Person!= null)
+            {
+                txtFirstName.Text = Person.FirstName;
+                txtLastName.Text = Person.LastName;
+                txtNationalCode.Text = Person.NationalCode;
+                if (Person.Gender == Genders.Male)
+                    rbMale.Checked = true;
+                else if (Person.Gender == Genders.Female)
+                    rbFemale.Checked = true;
+            }
+          
         }
-
         private void btnSave_Click(object sender, EventArgs e)
         {
-
-            var result = ValidateForm();
-
-            if (!result.IsSuccess)
+            bool isNew = true;
+            if(Person== null)
+                Person = new Person();
+            else
             {
-                AlertHelper.Eror(result.Message);
-                return;
+                isNew = false;
             }
+            Person.FirstName = txtFirstName.Text;
+            Person.LastName = txtLastName.Text;
+            Person.NationalCode = txtNationalCode.Text;
 
-            var frmPerson = Application.OpenForms[nameof(FrmPerson)] as FrmPerson;
 
-            if (frmPerson != null)
-            {
-                if (_isNew)
-                {
-                    frmPerson.persons.Add(_person);
-                }
-
-                frmPerson.FillDgv();
-            }
-
+            if (rbMale.Checked)
+                Person.Gender = Genders.Male;
+            else if (rbFemale.Checked)
+                Person.Gender = Genders.Female;
+            else
+                Person.Gender = Genders.Unknown;
+            if(isNew)
+                personManager.AddPerson(Person);
             DialogResult = DialogResult.OK;
-            Close();
         }
 
         private void txtName_KeyPress(object sender, KeyPressEventArgs e)
@@ -78,15 +65,6 @@ namespace PersonManagement
             }
         }
 
-        private void frmNewPerson_Load(object sender, EventArgs e)
-        {
-            txtName.Text = _person.Name;
-            txtFamilyName.Text = _person.FamilyName;
-            txtNationalCode.Text = _person.NationalCode;
-            if (_person.Gender == GenderType.Male)
-                rbMale.Checked = true;
-            else if (_person.Gender == GenderType.Female)
-                rbFemale.Checked = true;
-        }
+     
     }
 }

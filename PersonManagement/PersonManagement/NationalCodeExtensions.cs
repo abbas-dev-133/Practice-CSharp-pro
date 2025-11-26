@@ -8,7 +8,7 @@ namespace PersonManagement
 {
     public static class NationalCodeExtensions
     {
-        public static OperationResult ValidNationalCode(this string nationalCode)
+        public static OperationResult ValidateNationalCode(this string nationalCode)
         {
             if (string.IsNullOrWhiteSpace(nationalCode) || nationalCode.Length != 10)
             {

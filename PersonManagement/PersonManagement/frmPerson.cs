@@ -12,33 +12,32 @@ namespace PersonManagement
 {
     public partial class FrmPerson : Form
     {
-        public List<Person> persons = new List<Person>();
+        PersonManager personManager;
         public FrmPerson()
         {
             InitializeComponent();
+            personManager = new PersonManager();
         }
-
-        public void FillDgv()
-        {
-            dgvShowPerson.DataSource = null;
-            dgvShowPerson.DataSource = persons.ToList();
-        }
-
-        private void btnInsert_Click(object sender, EventArgs e)
-        {
-            var frm = new FrmNewPerson();
-            frm.Text = "Insert New Person";
-            frm.ShowDialog();
-            FillDgv();
-
-
-        }
-
         private void frmPerson_Load(object sender, EventArgs e)
         {
             FillDgv();
         }
+        public void FillDgv()
+        {
 
+            dgvShowPerson.DataSource = personManager.GetPersons().ToList();
+        }
+
+        private void btnInsert_Click(object sender, EventArgs e)
+        {
+            var frm = new FrmNewPerson()
+            {
+                Text = "Add New Person"
+            };
+
+            if (frm.ShowDialog() == DialogResult.OK)
+                FillDgv();
+        }
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (dgvShowPerson.CurrentRow == null)
@@ -48,11 +47,11 @@ namespace PersonManagement
             else
             {
                 var personToDelete = dgvShowPerson.CurrentRow.DataBoundItem as Person;
-                string questionText = $"آیا از حذف  {personToDelete.Name} اطمینان دارید؟";
+                string questionText = $"آیا از حذف  {personToDelete.FirstName} اطمینان دارید؟";
                 var result = AlertHelper.Question(questionText);
                 if (result == DialogResult.Yes)
                 {
-                    persons.Remove(personToDelete);
+                    personManager.RemovePerson(personToDelete);
                     FillDgv();
                 }
             }
@@ -67,13 +66,12 @@ namespace PersonManagement
             else
             {
                 var personToEdit = dgvShowPerson.CurrentRow.DataBoundItem as Person;
-                var frm = new FrmNewPerson(personToEdit);
-                frm.Text = "Edit Person";
-
-
-
-                DialogResult result = frm.ShowDialog();
-                if (result == DialogResult.OK)
+                var frm = new FrmNewPerson()
+                {
+                    Text = "Edit Person",
+                    Person = personToEdit
+                };
+                if (frm.ShowDialog()==DialogResult.OK)
                     FillDgv();
             }
 

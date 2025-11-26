@@ -60,9 +60,11 @@
     <Compile Include="FrmPerson.Designer.cs">
       <DependentUpon>FrmPerson.cs</DependentUpon>
     </Compile>
+    <Compile Include="Genders.cs" />
     <Compile Include="NationalCodeExtensions.cs" />
     <Compile Include="OperationResult.cs" />
     <Compile Include="Person.cs" />
+    <Compile Include="PersonManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmNewPerson.resx">

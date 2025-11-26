@@ -30,13 +30,15 @@
         {
             this.lblName = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
-            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtFirstName = new System.Windows.Forms.TextBox();
             this.lblFamilyName = new System.Windows.Forms.Label();
             this.lblNationalCode = new System.Windows.Forms.Label();
-            this.txtFamilyName = new System.Windows.Forms.TextBox();
+            this.txtLastName = new System.Windows.Forms.TextBox();
             this.rbMale = new System.Windows.Forms.RadioButton();
             this.rbFemale = new System.Windows.Forms.RadioButton();
             this.txtNationalCode = new System.Windows.Forms.MaskedTextBox();
+            this.gbGender = new System.Windows.Forms.GroupBox();
+            this.gbGender.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblName
@@ -54,23 +56,23 @@
             // 
             this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(74, 266);
+            this.btnSave.Location = new System.Drawing.Point(74, 285);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(108, 35);
-            this.btnSave.TabIndex = 5;
+            this.btnSave.TabIndex = 4;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // txtName
+            // txtFirstName
             // 
-            this.txtName.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(74, 62);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(164, 26);
-            this.txtName.TabIndex = 0;
-            this.txtName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtName_KeyPress);
+            this.txtFirstName.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.txtFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFirstName.Location = new System.Drawing.Point(74, 62);
+            this.txtFirstName.Name = "txtFirstName";
+            this.txtFirstName.Size = new System.Drawing.Size(164, 26);
+            this.txtFirstName.TabIndex = 0;
+            this.txtFirstName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtName_KeyPress);
             // 
             // lblFamilyName
             // 
@@ -94,24 +96,24 @@
             this.lblNationalCode.TabIndex = 0;
             this.lblNationalCode.Text = "NationalCode";
             // 
-            // txtFamilyName
+            // txtLastName
             // 
-            this.txtFamilyName.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.txtFamilyName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFamilyName.Location = new System.Drawing.Point(74, 108);
-            this.txtFamilyName.Name = "txtFamilyName";
-            this.txtFamilyName.Size = new System.Drawing.Size(164, 26);
-            this.txtFamilyName.TabIndex = 1;
-            this.txtFamilyName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtName_KeyPress);
+            this.txtLastName.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.txtLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLastName.Location = new System.Drawing.Point(74, 108);
+            this.txtLastName.Name = "txtLastName";
+            this.txtLastName.Size = new System.Drawing.Size(164, 26);
+            this.txtLastName.TabIndex = 1;
+            this.txtLastName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtName_KeyPress);
             // 
             // rbMale
             // 
             this.rbMale.AutoSize = true;
             this.rbMale.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbMale.Location = new System.Drawing.Point(74, 216);
+            this.rbMale.Location = new System.Drawing.Point(12, 29);
             this.rbMale.Name = "rbMale";
             this.rbMale.Size = new System.Drawing.Size(61, 24);
-            this.rbMale.TabIndex = 3;
+            this.rbMale.TabIndex = 0;
             this.rbMale.TabStop = true;
             this.rbMale.Text = "Male";
             this.rbMale.UseVisualStyleBackColor = true;
@@ -120,10 +122,10 @@
             // 
             this.rbFemale.AutoSize = true;
             this.rbFemale.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbFemale.Location = new System.Drawing.Point(158, 216);
+            this.rbFemale.Location = new System.Drawing.Point(78, 29);
             this.rbFemale.Name = "rbFemale";
             this.rbFemale.Size = new System.Drawing.Size(80, 24);
-            this.rbFemale.TabIndex = 4;
+            this.rbFemale.TabIndex = 1;
             this.rbFemale.TabStop = true;
             this.rbFemale.Text = "Female";
             this.rbFemale.UseVisualStyleBackColor = true;
@@ -137,25 +139,36 @@
             this.txtNationalCode.Size = new System.Drawing.Size(164, 26);
             this.txtNationalCode.TabIndex = 2;
             // 
-            // frmNewPerson
+            // gbGender
+            // 
+            this.gbGender.Controls.Add(this.rbFemale);
+            this.gbGender.Controls.Add(this.rbMale);
+            this.gbGender.Location = new System.Drawing.Point(74, 202);
+            this.gbGender.Name = "gbGender";
+            this.gbGender.Size = new System.Drawing.Size(164, 77);
+            this.gbGender.TabIndex = 3;
+            this.gbGender.TabStop = false;
+            this.gbGender.Text = "Gender";
+            // 
+            // FrmNewPerson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(428, 390);
+            this.Controls.Add(this.gbGender);
             this.Controls.Add(this.txtNationalCode);
-            this.Controls.Add(this.rbFemale);
-            this.Controls.Add(this.rbMale);
-            this.Controls.Add(this.txtFamilyName);
-            this.Controls.Add(this.txtName);
+            this.Controls.Add(this.txtLastName);
+            this.Controls.Add(this.txtFirstName);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.lblNationalCode);
             this.Controls.Add(this.lblFamilyName);
             this.Controls.Add(this.lblName);
             this.MaximumSize = new System.Drawing.Size(444, 429);
             this.MinimumSize = new System.Drawing.Size(444, 429);
-            this.Name = "frmNewPerson";
-            this.Text = "frmNewPerson";
+            this.Name = "FrmNewPerson";
             this.Load += new System.EventHandler(this.frmNewPerson_Load);
+            this.gbGender.ResumeLayout(false);
+            this.gbGender.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -165,12 +178,13 @@
 
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.TextBox txtFirstName;
         private System.Windows.Forms.Label lblFamilyName;
         private System.Windows.Forms.Label lblNationalCode;
-        private System.Windows.Forms.TextBox txtFamilyName;
+        private System.Windows.Forms.TextBox txtLastName;
         private System.Windows.Forms.RadioButton rbMale;
         private System.Windows.Forms.RadioButton rbFemale;
         private System.Windows.Forms.MaskedTextBox txtNationalCode;
+        private System.Windows.Forms.GroupBox gbGender;
     }
 }
