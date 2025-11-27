@@ -7,74 +7,72 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace PersonManagement
 {
     public partial class FrmPerson : Form
     {
         PersonManager personManager;
+        public Person Person {  get; set; }
+        Validation validation;
         public FrmPerson()
-        {
+        {           
             InitializeComponent();
             personManager = new PersonManager();
+            validation= new Validation();
         }
-        private void frmPerson_Load(object sender, EventArgs e)
+        private void frmNewPerson_Load(object sender, EventArgs e)
         {
-            FillDgv();
-        }
-        public void FillDgv()
-        {
-
-            dgvShowPerson.DataSource = personManager.GetPersons().ToList();
-        }
-
-        private void btnInsert_Click(object sender, EventArgs e)
-        {
-            var frm = new FrmNewPerson()
+            if(Person!= null)
             {
-                Text = "Add New Person"
-            };
-
-            if (frm.ShowDialog() == DialogResult.OK)
-                FillDgv();
-        }
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            if (dgvShowPerson.CurrentRow == null)
-            {
-                AlertHelper.Eror("یک ردیف را انتخاب کنید");
+                txtFirstName.Text = Person.FirstName;
+                txtLastName.Text = Person.LastName;
+                txtNationalCode.Text = Person.NationalCode;
+                if (Person.Gender == Genders.Male)
+                    rbMale.Checked = true;
+                else if (Person.Gender == Genders.Female)
+                    rbFemale.Checked = true;
             }
+          
+        }
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            bool isNew = true;
+            if(Person== null)
+                Person = new Person();
             else
             {
-                var personToDelete = dgvShowPerson.CurrentRow.DataBoundItem as Person;
-                string questionText = $"آیا از حذف  {personToDelete.FirstName} اطمینان دارید؟";
-                var result = AlertHelper.Question(questionText);
-                if (result == DialogResult.Yes)
-                {
-                    personManager.RemovePerson(personToDelete);
-                    FillDgv();
-                }
+                isNew = false;
             }
-        }
+            Person.FirstName = txtFirstName.Text;
+            Person.LastName = txtLastName.Text;
+            Person.NationalCode = txtNationalCode.Text;
 
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-            if (dgvShowPerson.CurrentRow == null)
-            {
-                AlertHelper.Eror("یک ردیف را انتخاب کنید");
-            }
+
+            if (rbMale.Checked)
+                Person.Gender = Genders.Male;
+            else if (rbFemale.Checked)
+                Person.Gender = Genders.Female;
             else
+                Person.Gender = Genders.Unknown;
+            var result =validation.Validate();
+            if (!result.IsSuccess)
             {
-                var personToEdit = dgvShowPerson.CurrentRow.DataBoundItem as Person;
-                var frm = new FrmNewPerson()
-                {
-                    Text = "Edit Person",
-                    Person = personToEdit
-                };
-                if (frm.ShowDialog()==DialogResult.OK)
-                    FillDgv();
+                MessageBoxHelper.Error(result.Message);
+                return;
             }
-
+            if(isNew)
+                personManager.AddPerson(Person);
+            DialogResult = DialogResult.OK;
         }
+
+        private void txtName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ')
+            {
+                e.Handled = true;
+            }
+        }
+
+     
     }
 }

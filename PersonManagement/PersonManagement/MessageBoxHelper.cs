@@ -7,9 +7,9 @@ using System.Windows.Forms;
 
 namespace PersonManagement
 {
-    internal class AlertHelper
+    internal class MessageBoxHelper
     {
-        public static void Eror(string message, string caption = "خطا")
+        public static void Error(string message, string caption = "خطا")
         {
             MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }

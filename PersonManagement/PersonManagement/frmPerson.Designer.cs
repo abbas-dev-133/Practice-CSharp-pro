@@ -28,186 +28,179 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvShowPerson = new System.Windows.Forms.DataGridView();
-            this.ColId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColFullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColNatioanalCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColGender = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColGenderText = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnInsert = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvShowPerson)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
+            this.lblName = new System.Windows.Forms.Label();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.txtFirstName = new System.Windows.Forms.TextBox();
+            this.lblFamilyName = new System.Windows.Forms.Label();
+            this.lblNationalCode = new System.Windows.Forms.Label();
+            this.txtLastName = new System.Windows.Forms.TextBox();
+            this.rbMale = new System.Windows.Forms.RadioButton();
+            this.rbFemale = new System.Windows.Forms.RadioButton();
+            this.txtNationalCode = new System.Windows.Forms.MaskedTextBox();
+            this.gbGender = new System.Windows.Forms.GroupBox();
+            this.rbUnknown = new System.Windows.Forms.RadioButton();
+            this.gbGender.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dgvShowPerson
+            // lblName
             // 
-            this.dgvShowPerson.AllowUserToAddRows = false;
-            this.dgvShowPerson.AllowUserToDeleteRows = false;
-            this.dgvShowPerson.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvShowPerson.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvShowPerson.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColId,
-            this.ColFirstName,
-            this.ColLastName,
-            this.ColFullName,
-            this.ColNatioanalCode,
-            this.ColGender,
-            this.ColGenderText});
-            this.dgvShowPerson.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvShowPerson.Location = new System.Drawing.Point(0, 0);
-            this.dgvShowPerson.Name = "dgvShowPerson";
-            this.dgvShowPerson.ReadOnly = true;
-            this.dgvShowPerson.Size = new System.Drawing.Size(534, 341);
-            this.dgvShowPerson.TabIndex = 2;
-            this.dgvShowPerson.TabStop = false;
+            this.lblName.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.Location = new System.Drawing.Point(209, 70);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(51, 20);
+            this.lblName.TabIndex = 0;
+            this.lblName.Text = "Name";
             // 
-            // ColId
+            // btnSave
             // 
-            this.ColId.HeaderText = "ID";
-            this.ColId.Name = "ColId";
-            this.ColId.ReadOnly = true;
-            this.ColId.Visible = false;
+            this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Location = new System.Drawing.Point(36, 334);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(108, 35);
+            this.btnSave.TabIndex = 4;
+            this.btnSave.TabStop = false;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // ColFirstName
+            // txtFirstName
             // 
-            this.ColFirstName.DataPropertyName = "FirstName";
-            this.ColFirstName.HeaderText = "نام";
-            this.ColFirstName.Name = "ColFirstName";
-            this.ColFirstName.ReadOnly = true;
-            this.ColFirstName.Visible = false;
+            this.txtFirstName.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.txtFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFirstName.Location = new System.Drawing.Point(36, 70);
+            this.txtFirstName.Name = "txtFirstName";
+            this.txtFirstName.Size = new System.Drawing.Size(164, 26);
+            this.txtFirstName.TabIndex = 0;
+            this.txtFirstName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtName_KeyPress);
             // 
-            // ColLastName
+            // lblFamilyName
             // 
-            this.ColLastName.DataPropertyName = "LastName";
-            this.ColLastName.HeaderText = "نام خانوادگی";
-            this.ColLastName.Name = "ColLastName";
-            this.ColLastName.ReadOnly = true;
-            this.ColLastName.Visible = false;
+            this.lblFamilyName.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblFamilyName.AutoSize = true;
+            this.lblFamilyName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFamilyName.Location = new System.Drawing.Point(209, 110);
+            this.lblFamilyName.Name = "lblFamilyName";
+            this.lblFamilyName.Size = new System.Drawing.Size(100, 20);
+            this.lblFamilyName.TabIndex = 0;
+            this.lblFamilyName.Text = "Family Name";
             // 
-            // ColFullName
+            // lblNationalCode
             // 
-            this.ColFullName.DataPropertyName = "FullName";
-            this.ColFullName.HeaderText = "نام شخص";
-            this.ColFullName.Name = "ColFullName";
-            this.ColFullName.ReadOnly = true;
+            this.lblNationalCode.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblNationalCode.AutoSize = true;
+            this.lblNationalCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNationalCode.Location = new System.Drawing.Point(205, 154);
+            this.lblNationalCode.Name = "lblNationalCode";
+            this.lblNationalCode.Size = new System.Drawing.Size(105, 20);
+            this.lblNationalCode.TabIndex = 0;
+            this.lblNationalCode.Text = "NationalCode";
             // 
-            // ColNatioanalCode
+            // txtLastName
             // 
-            this.ColNatioanalCode.DataPropertyName = "NationalCode";
-            this.ColNatioanalCode.HeaderText = "کدملی";
-            this.ColNatioanalCode.Name = "ColNatioanalCode";
-            this.ColNatioanalCode.ReadOnly = true;
+            this.txtLastName.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.txtLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLastName.Location = new System.Drawing.Point(36, 110);
+            this.txtLastName.Name = "txtLastName";
+            this.txtLastName.Size = new System.Drawing.Size(164, 26);
+            this.txtLastName.TabIndex = 1;
+            this.txtLastName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtName_KeyPress);
             // 
-            // ColGender
+            // rbMale
             // 
-            this.ColGender.DataPropertyName = "Gender";
-            this.ColGender.HeaderText = "جنس";
-            this.ColGender.Name = "ColGender";
-            this.ColGender.ReadOnly = true;
-            this.ColGender.Visible = false;
+            this.rbMale.AutoSize = true;
+            this.rbMale.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbMale.Location = new System.Drawing.Point(12, 29);
+            this.rbMale.Name = "rbMale";
+            this.rbMale.Size = new System.Drawing.Size(61, 24);
+            this.rbMale.TabIndex = 0;
+            this.rbMale.TabStop = true;
+            this.rbMale.Text = "Male";
+            this.rbMale.UseVisualStyleBackColor = true;
             // 
-            // ColGenderText
+            // rbFemale
             // 
-            this.ColGenderText.DataPropertyName = "GenderText";
-            this.ColGenderText.HeaderText = "جنسیت";
-            this.ColGenderText.Name = "ColGenderText";
-            this.ColGenderText.ReadOnly = true;
+            this.rbFemale.AutoSize = true;
+            this.rbFemale.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbFemale.Location = new System.Drawing.Point(12, 59);
+            this.rbFemale.Name = "rbFemale";
+            this.rbFemale.Size = new System.Drawing.Size(80, 24);
+            this.rbFemale.TabIndex = 1;
+            this.rbFemale.TabStop = true;
+            this.rbFemale.Text = "Female";
+            this.rbFemale.UseVisualStyleBackColor = true;
             // 
-            // btnInsert
+            // txtNationalCode
             // 
-            this.btnInsert.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnInsert.Location = new System.Drawing.Point(436, 27);
-            this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(75, 23);
-            this.btnInsert.TabIndex = 0;
-            this.btnInsert.Text = "Insert";
-            this.btnInsert.UseVisualStyleBackColor = true;
-            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
+            this.txtNationalCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNationalCode.Location = new System.Drawing.Point(36, 151);
+            this.txtNationalCode.Mask = "0000000000";
+            this.txtNationalCode.Name = "txtNationalCode";
+            this.txtNationalCode.Size = new System.Drawing.Size(164, 26);
+            this.txtNationalCode.TabIndex = 2;
             // 
-            // btnDelete
+            // gbGender
             // 
-            this.btnDelete.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnDelete.Location = new System.Drawing.Point(355, 27);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnDelete.TabIndex = 1;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.gbGender.Controls.Add(this.rbUnknown);
+            this.gbGender.Controls.Add(this.rbFemale);
+            this.gbGender.Controls.Add(this.rbMale);
+            this.gbGender.Location = new System.Drawing.Point(36, 183);
+            this.gbGender.Name = "gbGender";
+            this.gbGender.Size = new System.Drawing.Size(164, 135);
+            this.gbGender.TabIndex = 3;
+            this.gbGender.TabStop = false;
+            this.gbGender.Text = "Gender";
             // 
-            // btnEdit
+            // rbUnknown
             // 
-            this.btnEdit.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnEdit.Location = new System.Drawing.Point(274, 27);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(75, 23);
-            this.btnEdit.TabIndex = 1;
-            this.btnEdit.Text = "Edit";
-            this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
-            // splitContainer1
-            // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.Controls.Add(this.btnInsert);
-            this.splitContainer1.Panel1.Controls.Add(this.btnDelete);
-            this.splitContainer1.Panel1.Controls.Add(this.btnEdit);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.Controls.Add(this.dgvShowPerson);
-            this.splitContainer1.Size = new System.Drawing.Size(534, 423);
-            this.splitContainer1.SplitterDistance = 78;
-            this.splitContainer1.TabIndex = 3;
+            this.rbUnknown.AutoSize = true;
+            this.rbUnknown.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbUnknown.Location = new System.Drawing.Point(12, 95);
+            this.rbUnknown.Name = "rbUnknown";
+            this.rbUnknown.Size = new System.Drawing.Size(94, 24);
+            this.rbUnknown.TabIndex = 1;
+            this.rbUnknown.TabStop = true;
+            this.rbUnknown.Text = "Unkowon";
+            this.rbUnknown.UseVisualStyleBackColor = true;
             // 
             // FrmPerson
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(534, 423);
-            this.Controls.Add(this.splitContainer1);
-            this.MaximumSize = new System.Drawing.Size(550, 462);
-            this.MinimumSize = new System.Drawing.Size(550, 462);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(393, 395);
+            this.Controls.Add(this.gbGender);
+            this.Controls.Add(this.txtNationalCode);
+            this.Controls.Add(this.txtLastName);
+            this.Controls.Add(this.txtFirstName);
+            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.lblNationalCode);
+            this.Controls.Add(this.lblFamilyName);
+            this.Controls.Add(this.lblName);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(409, 434);
+            this.MinimumSize = new System.Drawing.Size(409, 434);
             this.Name = "FrmPerson";
-            this.Text = "frmPerson";
-            this.Load += new System.EventHandler(this.frmPerson_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvShowPerson)).EndInit();
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
+            this.Load += new System.EventHandler(this.frmNewPerson_Load);
+            this.gbGender.ResumeLayout(false);
+            this.gbGender.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgvShowPerson;
-        private System.Windows.Forms.Button btnInsert;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColFirstName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColLastName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColFullName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColNatioanalCode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColGender;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColGenderText;
-        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.TextBox txtFirstName;
+        private System.Windows.Forms.Label lblFamilyName;
+        private System.Windows.Forms.Label lblNationalCode;
+        private System.Windows.Forms.TextBox txtLastName;
+        private System.Windows.Forms.RadioButton rbMale;
+        private System.Windows.Forms.RadioButton rbFemale;
+        private System.Windows.Forms.MaskedTextBox txtNationalCode;
+        private System.Windows.Forms.GroupBox gbGender;
+        private System.Windows.Forms.RadioButton rbUnknown;
     }
 }
-

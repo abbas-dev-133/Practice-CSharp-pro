@@ -9,8 +9,7 @@ using System.Xml.Linq;
 namespace PersonManagement
 {
     public class Person
-    {
-        //public int Id { get; set; }
+    {  
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string NationalCode { get; set; }
@@ -39,37 +38,5 @@ namespace PersonManagement
                 return $"{FirstName} {LastName}";
             }
         }
-        public OperationResult Validate()
-        {
-
-
-            var checkValidNationalCode = NationalCode.ValidateNationalCode();
-            if (string.IsNullOrWhiteSpace(FirstName) ||
-             string.IsNullOrWhiteSpace(LastName))
-            {
-
-                return OperationResult.Failed("لطفا همه فیلدها را پر کنید.");
-            }
-            else
-             if (!checkValidNationalCode.IsSuccess)
-            {
-                return OperationResult.Failed(checkValidNationalCode.Message);
-            }
-
-            else
-            if (Gender == Genders.Unknown)
-            {
-
-                return OperationResult.Failed("لطفا جنسیت را انتخاب کنید.");
-            }
-            else
-            {
-                return OperationResult.Success("اطلاعات وارد شده معتبر است.");
-            }
-        }
-
-
-
-
     }
 }
