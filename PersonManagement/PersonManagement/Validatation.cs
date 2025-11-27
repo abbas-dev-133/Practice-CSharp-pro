@@ -8,16 +8,11 @@ namespace PersonManagement
 {
     public class Validation
     {
-        Person Person;
-        public Validation()
+        public OperationResult Validate(Person person)
         {
-            Person= new Person();
-        }
-        public OperationResult Validate()
-        {
-            var checkValidNationalCode = Person.NationalCode.ValidateNationalCode();
-            if (string.IsNullOrWhiteSpace(Person.FirstName) ||
-             string.IsNullOrWhiteSpace(Person.LastName))
+            var checkValidNationalCode = person.NationalCode.ValidateNationalCode();
+            if (string.IsNullOrWhiteSpace(person.FirstName) ||
+             string.IsNullOrWhiteSpace(person.LastName))
             {
 
                 return OperationResult.Failed("لطفا همه فیلدها را پر کنید.");
@@ -29,7 +24,7 @@ namespace PersonManagement
             }
 
             else
-            if (Person.Gender == Genders.Unknown)
+            if (person.Gender == Genders.None)
             {
 
                 return OperationResult.Failed("لطفا جنسیت را انتخاب کنید.");

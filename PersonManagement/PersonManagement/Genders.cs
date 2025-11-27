@@ -10,7 +10,8 @@ namespace PersonManagement
     {
         Male,
         Female,
-        Unknown
+        Unknown,
+        None
 
     }
 }

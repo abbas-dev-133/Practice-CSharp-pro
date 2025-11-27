@@ -52,9 +52,11 @@ namespace PersonManagement
                 Person.Gender = Genders.Male;
             else if (rbFemale.Checked)
                 Person.Gender = Genders.Female;
-            else
+            else if(rbUnknown.Checked)
                 Person.Gender = Genders.Unknown;
-            var result =validation.Validate();
+            else
+                Person.Gender = Genders.None;
+            var result =validation.Validate(Person);
             if (!result.IsSuccess)
             {
                 MessageBoxHelper.Error(result.Message);
