@@ -13,12 +13,10 @@ namespace PersonManagement
     {
         PersonManager personManager;
         public Person Person {  get; set; }
-        Validation validation;
         public FrmPerson()
         {           
             InitializeComponent();
             personManager = new PersonManager();
-            validation= new Validation();
         }
         private void frmNewPerson_Load(object sender, EventArgs e)
         {
@@ -56,7 +54,7 @@ namespace PersonManagement
                 Person.Gender = Genders.Unknown;
             else
                 Person.Gender = Genders.None;
-            var result =validation.Validate(Person);
+            var result =Person.Validate();
             if (!result.IsSuccess)
             {
                 MessageBoxHelper.Error(result.Message);
