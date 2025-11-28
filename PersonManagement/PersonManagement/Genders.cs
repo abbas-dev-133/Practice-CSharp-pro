@@ -8,10 +8,10 @@ namespace PersonManagement
 {
     public enum Genders : byte
     {
-        Male,
-        Female,
-        Unknown,
-        None
+        Male=0,
+        Female=1,
+        Unknown=2,
+        None=3
 
     }
 }
