@@ -29,6 +29,8 @@ namespace PersonManagement
                     rbMale.Checked = true;
                 else if (Person.Gender == Genders.Female)
                     rbFemale.Checked = true;
+                else if(Person.Gender == Genders.Unknown)
+                    rbUnknown.Checked = true;
             }
           
         }
