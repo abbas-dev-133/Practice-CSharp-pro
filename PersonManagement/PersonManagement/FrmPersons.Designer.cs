@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.dgvShowPerson = new System.Windows.Forms.DataGridView();
-            this.ColId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColFullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColNatioanalCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColGender = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColGenderText = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnInsert = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NatioanalCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GenderText = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShowPerson)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -54,13 +54,13 @@
             this.dgvShowPerson.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvShowPerson.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvShowPerson.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColId,
-            this.ColFirstName,
-            this.ColLastName,
-            this.ColFullName,
-            this.ColNatioanalCode,
-            this.ColGender,
-            this.ColGenderText});
+            this.Id,
+            this.FirstName,
+            this.LastName,
+            this.FullName,
+            this.NatioanalCode,
+            this.Gender,
+            this.GenderText});
             this.dgvShowPerson.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvShowPerson.Location = new System.Drawing.Point(0, 0);
             this.dgvShowPerson.Name = "dgvShowPerson";
@@ -68,58 +68,6 @@
             this.dgvShowPerson.Size = new System.Drawing.Size(534, 341);
             this.dgvShowPerson.TabIndex = 2;
             this.dgvShowPerson.TabStop = false;
-            // 
-            // ColId
-            // 
-            this.ColId.HeaderText = "ID";
-            this.ColId.Name = "ColId";
-            this.ColId.ReadOnly = true;
-            this.ColId.Visible = false;
-            // 
-            // ColFirstName
-            // 
-            this.ColFirstName.DataPropertyName = "FirstName";
-            this.ColFirstName.HeaderText = "نام";
-            this.ColFirstName.Name = "ColFirstName";
-            this.ColFirstName.ReadOnly = true;
-            this.ColFirstName.Visible = false;
-            // 
-            // ColLastName
-            // 
-            this.ColLastName.DataPropertyName = "LastName";
-            this.ColLastName.HeaderText = "نام خانوادگی";
-            this.ColLastName.Name = "ColLastName";
-            this.ColLastName.ReadOnly = true;
-            this.ColLastName.Visible = false;
-            // 
-            // ColFullName
-            // 
-            this.ColFullName.DataPropertyName = "FullName";
-            this.ColFullName.HeaderText = "نام شخص";
-            this.ColFullName.Name = "ColFullName";
-            this.ColFullName.ReadOnly = true;
-            // 
-            // ColNatioanalCode
-            // 
-            this.ColNatioanalCode.DataPropertyName = "NationalCode";
-            this.ColNatioanalCode.HeaderText = "کدملی";
-            this.ColNatioanalCode.Name = "ColNatioanalCode";
-            this.ColNatioanalCode.ReadOnly = true;
-            // 
-            // ColGender
-            // 
-            this.ColGender.DataPropertyName = "Gender";
-            this.ColGender.HeaderText = "جنس";
-            this.ColGender.Name = "ColGender";
-            this.ColGender.ReadOnly = true;
-            this.ColGender.Visible = false;
-            // 
-            // ColGenderText
-            // 
-            this.ColGenderText.DataPropertyName = "GenderText";
-            this.ColGenderText.HeaderText = "جنسیت";
-            this.ColGenderText.Name = "ColGenderText";
-            this.ColGenderText.ReadOnly = true;
             // 
             // btnInsert
             // 
@@ -174,7 +122,59 @@
             this.splitContainer1.SplitterDistance = 78;
             this.splitContainer1.TabIndex = 3;
             // 
-            // FrmPerson
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "شناسه";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            // 
+            // FirstName
+            // 
+            this.FirstName.DataPropertyName = "FirstName";
+            this.FirstName.HeaderText = "نام";
+            this.FirstName.Name = "FirstName";
+            this.FirstName.ReadOnly = true;
+            this.FirstName.Visible = false;
+            // 
+            // LastName
+            // 
+            this.LastName.DataPropertyName = "LastName";
+            this.LastName.HeaderText = "نام خانوادگی";
+            this.LastName.Name = "LastName";
+            this.LastName.ReadOnly = true;
+            this.LastName.Visible = false;
+            // 
+            // FullName
+            // 
+            this.FullName.DataPropertyName = "FullName";
+            this.FullName.HeaderText = "نام شخص";
+            this.FullName.Name = "FullName";
+            this.FullName.ReadOnly = true;
+            // 
+            // NatioanalCode
+            // 
+            this.NatioanalCode.DataPropertyName = "NationalCode";
+            this.NatioanalCode.HeaderText = "کدملی";
+            this.NatioanalCode.Name = "NatioanalCode";
+            this.NatioanalCode.ReadOnly = true;
+            // 
+            // Gender
+            // 
+            this.Gender.DataPropertyName = "Gender";
+            this.Gender.HeaderText = "جنس";
+            this.Gender.Name = "Gender";
+            this.Gender.ReadOnly = true;
+            this.Gender.Visible = false;
+            // 
+            // GenderText
+            // 
+            this.GenderText.DataPropertyName = "GenderText";
+            this.GenderText.HeaderText = "جنسیت";
+            this.GenderText.Name = "GenderText";
+            this.GenderText.ReadOnly = true;
+            // 
+            // FrmPersons
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -182,7 +182,7 @@
             this.Controls.Add(this.splitContainer1);
             this.MaximumSize = new System.Drawing.Size(550, 462);
             this.MinimumSize = new System.Drawing.Size(550, 462);
-            this.Name = "FrmPerson";
+            this.Name = "FrmPersons";
             this.Text = "frmPerson";
             this.Load += new System.EventHandler(this.frmPerson_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvShowPerson)).EndInit();
@@ -200,14 +200,14 @@
         private System.Windows.Forms.Button btnInsert;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColFirstName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColLastName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColFullName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColNatioanalCode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColGender;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColGenderText;
         private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FullName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NatioanalCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Gender;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GenderText;
     }
 }
 

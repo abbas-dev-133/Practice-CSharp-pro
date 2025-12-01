@@ -36,9 +36,9 @@
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.rbMale = new System.Windows.Forms.RadioButton();
             this.rbFemale = new System.Windows.Forms.RadioButton();
-            this.txtNationalCode = new System.Windows.Forms.MaskedTextBox();
             this.gbGender = new System.Windows.Forms.GroupBox();
             this.rbUnknown = new System.Windows.Forms.RadioButton();
+            this.txtNationalCode = new System.Windows.Forms.TextBox();
             this.gbGender.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -132,15 +132,6 @@
             this.rbFemale.Text = "Female";
             this.rbFemale.UseVisualStyleBackColor = true;
             // 
-            // txtNationalCode
-            // 
-            this.txtNationalCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNationalCode.Location = new System.Drawing.Point(36, 151);
-            this.txtNationalCode.Mask = "0000000000";
-            this.txtNationalCode.Name = "txtNationalCode";
-            this.txtNationalCode.Size = new System.Drawing.Size(164, 26);
-            this.txtNationalCode.TabIndex = 2;
-            // 
             // gbGender
             // 
             this.gbGender.Controls.Add(this.rbUnknown);
@@ -164,6 +155,17 @@
             this.rbUnknown.TabStop = true;
             this.rbUnknown.Text = "Unkowon";
             this.rbUnknown.UseVisualStyleBackColor = true;
+            // 
+            // txtNationalCode
+            // 
+            this.txtNationalCode.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.txtNationalCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNationalCode.Location = new System.Drawing.Point(35, 148);
+            this.txtNationalCode.MaxLength = 10;
+            this.txtNationalCode.Name = "txtNationalCode";
+            this.txtNationalCode.Size = new System.Drawing.Size(164, 26);
+            this.txtNationalCode.TabIndex = 2;
+            this.txtNationalCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNationalCode_KeyPress);
             // 
             // FrmPerson
             // 
@@ -199,8 +201,8 @@
         private System.Windows.Forms.TextBox txtLastName;
         private System.Windows.Forms.RadioButton rbMale;
         private System.Windows.Forms.RadioButton rbFemale;
-        private System.Windows.Forms.MaskedTextBox txtNationalCode;
         private System.Windows.Forms.GroupBox gbGender;
         private System.Windows.Forms.RadioButton rbUnknown;
+        private System.Windows.Forms.TextBox txtNationalCode;
     }
 }

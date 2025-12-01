@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace PersonManagement
 {
     public class PersonManager
     {
+        private static int _lastId=0;
         private static List<Person> persons;
         public PersonManager()
         {
@@ -20,12 +17,14 @@ namespace PersonManagement
         }
         public void AddPerson(Person person)
         {
+            _lastId++;
+            person.Id = _lastId;
             persons.Add(person);
         }
         public void RemovePerson(Person person)
         {
+            _lastId--;
             persons.Remove(person);
         }
-
     }
 }
