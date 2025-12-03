@@ -28,7 +28,8 @@ namespace PersonManagement
             return OperationResult.Success("شخص با موفقیت اضافه شد.");
         }
         public void RemovePerson(Person person)
-        {  
+        {
+            _lastId--;
             persons.Remove(person);
             RefreshId(person.Id);
         }
