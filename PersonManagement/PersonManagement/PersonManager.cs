@@ -29,7 +29,6 @@ namespace PersonManagement
         }
         public void RemovePerson(Person person)
         {
-            _lastId--;
             persons.Remove(person);
             RefreshId(person.Id);
         }
