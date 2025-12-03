@@ -12,15 +12,15 @@ namespace PersonManagement
     public partial class FrmPerson : Form
     {
         PersonManager personManager;
-        public Person Person {  get; set; }
+        public Person Person { get; set; }
         public FrmPerson()
-        {           
+        {
             InitializeComponent();
             personManager = new PersonManager();
         }
         private void frmNewPerson_Load(object sender, EventArgs e)
         {
-            if(Person!= null)
+            if (Person != null)
             {
                 txtFirstName.Text = Person.FirstName;
                 txtLastName.Text = Person.LastName;
@@ -29,15 +29,15 @@ namespace PersonManagement
                     rbMale.Checked = true;
                 else if (Person.Gender == Genders.Female)
                     rbFemale.Checked = true;
-                else if(Person.Gender == Genders.Unknown)
+                else if (Person.Gender == Genders.Unknown)
                     rbUnknown.Checked = true;
             }
-          
+
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
             bool isNew = true;
-            if(Person== null)
+            if (Person == null)
                 Person = new Person();
             else
             {
@@ -52,18 +52,21 @@ namespace PersonManagement
                 Person.Gender = Genders.Male;
             else if (rbFemale.Checked)
                 Person.Gender = Genders.Female;
-            else if(rbUnknown.Checked)
+            else if (rbUnknown.Checked)
                 Person.Gender = Genders.Unknown;
             else
                 Person.Gender = Genders.None;
-            var result =Person.Validate();
-            if (!result.IsSuccess)
+
+            if (isNew)
             {
-                MessageBoxHelper.Error(result.Message);
-                return;
+                var result = personManager.AddPerson(Person);
+                if (!result.IsSuccess) 
+                {
+                    MessageBoxHelper.Error(result.Message); 
+                    return;
+                }
             }
-            if(isNew)
-                personManager.AddPerson(Person);
+
             DialogResult = DialogResult.OK;
         }
 

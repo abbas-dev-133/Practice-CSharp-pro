@@ -9,7 +9,7 @@ using System.Xml.Linq;
 namespace PersonManagement
 {
     public class Person
-    {  
+    {
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -25,7 +25,7 @@ namespace PersonManagement
                     case Genders.Male:
                         return "آقا";
                     case Genders.Female:
-                       return "خانم";    
+                        return "خانم";
                     default:
                         return "نامشخص";
                 }
@@ -42,20 +42,22 @@ namespace PersonManagement
         public OperationResult Validate()
         {
             var checkValidNationalCode = NationalCode.ValidateNationalCode();
-            if (string.IsNullOrWhiteSpace(FirstName) ||
-             string.IsNullOrWhiteSpace(LastName))
+
+            if (string.IsNullOrWhiteSpace(FirstName))
+            {
+                return OperationResult.Failed("لطفا نام را وارد کنید");
+            }
+            else if (string.IsNullOrWhiteSpace(LastName))
             {
 
-                return OperationResult.Failed("لطفا همه فیلدها را پر کنید.");
+                return OperationResult.Failed("لطفا نام خانوادگی را وارد کنید.");
             }
-            else
-             if (!checkValidNationalCode.IsSuccess)
+            else if (!checkValidNationalCode.IsSuccess)
             {
                 return OperationResult.Failed(checkValidNationalCode.Message);
             }
 
-            else
-            if (Gender == Genders.None)
+            else if (Gender == Genders.None)
             {
 
                 return OperationResult.Failed("لطفا جنسیت را انتخاب کنید.");
