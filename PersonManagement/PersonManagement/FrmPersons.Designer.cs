@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             this.dgvShowPerson = new System.Windows.Forms.DataGridView();
-            this.btnInsert = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,6 +36,10 @@
             this.NatioanalCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GenderText = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnInsert = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShowPerson)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -68,6 +68,58 @@
             this.dgvShowPerson.Size = new System.Drawing.Size(534, 341);
             this.dgvShowPerson.TabIndex = 2;
             this.dgvShowPerson.TabStop = false;
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "شناسه";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            // 
+            // FirstName
+            // 
+            this.FirstName.DataPropertyName = "FirstName";
+            this.FirstName.HeaderText = "نام";
+            this.FirstName.Name = "FirstName";
+            this.FirstName.ReadOnly = true;
+            this.FirstName.Visible = false;
+            // 
+            // LastName
+            // 
+            this.LastName.DataPropertyName = "LastName";
+            this.LastName.HeaderText = "نام خانوادگی";
+            this.LastName.Name = "LastName";
+            this.LastName.ReadOnly = true;
+            this.LastName.Visible = false;
+            // 
+            // FullName
+            // 
+            this.FullName.DataPropertyName = "FullName";
+            this.FullName.HeaderText = "نام شخص";
+            this.FullName.Name = "FullName";
+            this.FullName.ReadOnly = true;
+            // 
+            // NatioanalCode
+            // 
+            this.NatioanalCode.DataPropertyName = "NationalCode";
+            this.NatioanalCode.HeaderText = "کدملی";
+            this.NatioanalCode.Name = "NatioanalCode";
+            this.NatioanalCode.ReadOnly = true;
+            // 
+            // Gender
+            // 
+            this.Gender.DataPropertyName = "Gender";
+            this.Gender.HeaderText = "جنس";
+            this.Gender.Name = "Gender";
+            this.Gender.ReadOnly = true;
+            this.Gender.Visible = false;
+            // 
+            // GenderText
+            // 
+            this.GenderText.DataPropertyName = "GenderText";
+            this.GenderText.HeaderText = "جنسیت";
+            this.GenderText.Name = "GenderText";
+            this.GenderText.ReadOnly = true;
             // 
             // btnInsert
             // 
@@ -121,58 +173,6 @@
             this.splitContainer1.Size = new System.Drawing.Size(534, 423);
             this.splitContainer1.SplitterDistance = 78;
             this.splitContainer1.TabIndex = 3;
-            // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "شناسه";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            // 
-            // FirstName
-            // 
-            this.FirstName.DataPropertyName = "FirstName";
-            this.FirstName.HeaderText = "نام";
-            this.FirstName.Name = "FirstName";
-            this.FirstName.ReadOnly = true;
-            this.FirstName.Visible = false;
-            // 
-            // LastName
-            // 
-            this.LastName.DataPropertyName = "LastName";
-            this.LastName.HeaderText = "نام خانوادگی";
-            this.LastName.Name = "LastName";
-            this.LastName.ReadOnly = true;
-            this.LastName.Visible = false;
-            // 
-            // FullName
-            // 
-            this.FullName.DataPropertyName = "FullName";
-            this.FullName.HeaderText = "نام شخص";
-            this.FullName.Name = "FullName";
-            this.FullName.ReadOnly = true;
-            // 
-            // NatioanalCode
-            // 
-            this.NatioanalCode.DataPropertyName = "NationalCode";
-            this.NatioanalCode.HeaderText = "کدملی";
-            this.NatioanalCode.Name = "NatioanalCode";
-            this.NatioanalCode.ReadOnly = true;
-            // 
-            // Gender
-            // 
-            this.Gender.DataPropertyName = "Gender";
-            this.Gender.HeaderText = "جنس";
-            this.Gender.Name = "Gender";
-            this.Gender.ReadOnly = true;
-            this.Gender.Visible = false;
-            // 
-            // GenderText
-            // 
-            this.GenderText.DataPropertyName = "GenderText";
-            this.GenderText.HeaderText = "جنسیت";
-            this.GenderText.Name = "GenderText";
-            this.GenderText.ReadOnly = true;
             // 
             // FrmPersons
             // 

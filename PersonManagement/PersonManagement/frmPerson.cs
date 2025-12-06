@@ -56,13 +56,13 @@ namespace PersonManagement
                 Person.Gender = Genders.Unknown;
             else
                 Person.Gender = Genders.None;
-
             if (isNew)
             {
                 var result = personManager.AddPerson(Person);
-                if (!result.IsSuccess) 
+                if (!result.IsSuccess)
                 {
-                    MessageBoxHelper.Error(result.Message); 
+                    MessageBoxHelper.Error(result.Message);
+                    Person = null;
                     return;
                 }
             }

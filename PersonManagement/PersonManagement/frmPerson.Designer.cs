@@ -127,7 +127,7 @@
             this.rbFemale.Location = new System.Drawing.Point(12, 59);
             this.rbFemale.Name = "rbFemale";
             this.rbFemale.Size = new System.Drawing.Size(80, 24);
-            this.rbFemale.TabIndex = 1;
+            this.rbFemale.TabIndex = 0;
             this.rbFemale.TabStop = true;
             this.rbFemale.Text = "Female";
             this.rbFemale.UseVisualStyleBackColor = true;
@@ -151,7 +151,7 @@
             this.rbUnknown.Location = new System.Drawing.Point(12, 95);
             this.rbUnknown.Name = "rbUnknown";
             this.rbUnknown.Size = new System.Drawing.Size(94, 24);
-            this.rbUnknown.TabIndex = 1;
+            this.rbUnknown.TabIndex = 0;
             this.rbUnknown.TabStop = true;
             this.rbUnknown.Text = "Unkowon";
             this.rbUnknown.UseVisualStyleBackColor = true;
