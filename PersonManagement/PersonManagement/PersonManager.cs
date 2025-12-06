@@ -30,9 +30,9 @@ namespace PersonManagement
         public void RemovePerson(Person person)
         {
             persons.Remove(person);
-            RefreshId(person.Id);
+            RefreshId();
         }
-        public void RefreshId(int id)
+        public void RefreshId()
         {
             _lastId = 0;
             foreach (var person in persons)

@@ -50,7 +50,7 @@ namespace PersonManagement
             else if (string.IsNullOrWhiteSpace(LastName))
             {
 
-                return OperationResult.Failed("لطفا نام خانوادگی را وارد کنید.");
+                return OperationResult.Failed("لطفا نام خانوادگی را وارد کنید");
             }
             else if (!checkValidNationalCode.IsSuccess)
             {
@@ -60,11 +60,11 @@ namespace PersonManagement
             else if (Gender == Genders.None)
             {
 
-                return OperationResult.Failed("لطفا جنسیت را انتخاب کنید.");
+                return OperationResult.Failed("لطفا جنسیت را انتخاب کنید");
             }
             else
             {
-                return OperationResult.Success("اطلاعات وارد شده معتبر است.");
+                return OperationResult.Success("اطلاعات وارد شده معتبر است");
             }
         }
     }
