@@ -13,6 +13,7 @@ namespace PersonManagement
     {
         PersonManager personManager;
         public Person Person { get; set; }
+        private bool isEdit = true;
         public FrmPerson()
         {
             InitializeComponent();
@@ -36,12 +37,10 @@ namespace PersonManagement
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
-            bool isNew = true;
             if (Person == null)
-                Person = new Person();
-            else
             {
-                isNew = false;
+                Person = new Person();
+                isEdit = false;
             }
             Person.FirstName = txtFirstName.Text;
             Person.LastName = txtLastName.Text;
@@ -56,16 +55,23 @@ namespace PersonManagement
                 Person.Gender = Genders.Unknown;
             else
                 Person.Gender = Genders.None;
-            if (isNew)
+
+            OperationResult result;
+            if (!isEdit)
             {
-                var result = personManager.AddPerson(Person);
-                if (!result.IsSuccess)
-                {
-                    MessageBoxHelper.Error(result.Message);
-                    Person = null;
-                    return;
-                }
+                result = personManager.AddPerson(Person);
             }
+            else
+                result = Person.Validate();
+
+            if (!result.IsSuccess)
+            {
+                MessageBoxHelper.Error(result.Message);
+                if(!isEdit)
+                Person = null;
+                return;
+            }
+
 
             DialogResult = DialogResult.OK;
         }
