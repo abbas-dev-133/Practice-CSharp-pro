@@ -54,7 +54,7 @@ namespace PersonManagement
                     return OperationResult.Failed(" کد ملی تکراری است");
             }
             if (studentToEdit == null)
-                return OperationResult.Failed("دانشچو مورد نظر پیدا نشد");
+                return OperationResult.Failed("دانشجو مورد نظر پیدا نشد");
             studentToEdit.FirstName = student.FirstName;    
             studentToEdit.LastName = student.LastName;
             studentToEdit.NationalCode = student.NationalCode;

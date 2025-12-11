@@ -1,6 +1,6 @@
 ﻿namespace PersonManagement
 {
-    partial class FrmStudent
+    partial class FrmTeacher
     {
         /// <summary>
         /// Required designer variable.
@@ -32,18 +32,20 @@
             this.rbUnknown = new System.Windows.Forms.RadioButton();
             this.rbFemale = new System.Windows.Forms.RadioButton();
             this.rbMale = new System.Windows.Forms.RadioButton();
-            this.txtGrade = new System.Windows.Forms.TextBox();
-            this.txtStudentCode = new System.Windows.Forms.TextBox();
+            this.txtAddress = new System.Windows.Forms.TextBox();
+            this.txtMobile = new System.Windows.Forms.TextBox();
             this.txtNationalCode = new System.Windows.Forms.TextBox();
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.txtFirstName = new System.Windows.Forms.TextBox();
-            this.lblGrade = new System.Windows.Forms.Label();
+            this.lblAddress = new System.Windows.Forms.Label();
             this.btnSaveAndNew = new System.Windows.Forms.Button();
-            this.lblStudentCode = new System.Windows.Forms.Label();
+            this.lblMobile = new System.Windows.Forms.Label();
             this.btnSaveAndClose = new System.Windows.Forms.Button();
             this.lblNationalCode = new System.Windows.Forms.Label();
             this.lblFamilyName = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
+            this.lblField = new System.Windows.Forms.Label();
+            this.txtField = new System.Windows.Forms.TextBox();
             this.gbGender.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,10 +55,10 @@
             this.gbGender.Controls.Add(this.rbUnknown);
             this.gbGender.Controls.Add(this.rbFemale);
             this.gbGender.Controls.Add(this.rbMale);
-            this.gbGender.Location = new System.Drawing.Point(70, 228);
+            this.gbGender.Location = new System.Drawing.Point(89, 298);
             this.gbGender.Name = "gbGender";
             this.gbGender.Size = new System.Drawing.Size(164, 135);
-            this.gbGender.TabIndex = 5;
+            this.gbGender.TabIndex = 6;
             this.gbGender.TabStop = false;
             this.gbGender.Text = "Gender";
             // 
@@ -96,29 +98,31 @@
             this.rbMale.Text = "Male";
             this.rbMale.UseVisualStyleBackColor = true;
             // 
-            // txtGrade
+            // txtAddress
             // 
-            this.txtGrade.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.txtGrade.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGrade.Location = new System.Drawing.Point(70, 196);
-            this.txtGrade.Name = "txtGrade";
-            this.txtGrade.Size = new System.Drawing.Size(164, 26);
-            this.txtGrade.TabIndex = 4;
+            this.txtAddress.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.txtAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddress.Location = new System.Drawing.Point(89, 172);
+            this.txtAddress.Multiline = true;
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(164, 120);
+            this.txtAddress.TabIndex = 5;
             // 
-            // txtStudentCode
+            // txtMobile
             // 
-            this.txtStudentCode.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.txtStudentCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStudentCode.Location = new System.Drawing.Point(70, 162);
-            this.txtStudentCode.Name = "txtStudentCode";
-            this.txtStudentCode.Size = new System.Drawing.Size(164, 26);
-            this.txtStudentCode.TabIndex = 3;
+            this.txtMobile.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.txtMobile.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMobile.Location = new System.Drawing.Point(89, 111);
+            this.txtMobile.MaxLength = 11;
+            this.txtMobile.Name = "txtMobile";
+            this.txtMobile.Size = new System.Drawing.Size(164, 26);
+            this.txtMobile.TabIndex = 3;
             // 
             // txtNationalCode
             // 
             this.txtNationalCode.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.txtNationalCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNationalCode.Location = new System.Drawing.Point(70, 130);
+            this.txtNationalCode.Location = new System.Drawing.Point(89, 79);
             this.txtNationalCode.MaxLength = 10;
             this.txtNationalCode.Name = "txtNationalCode";
             this.txtNationalCode.Size = new System.Drawing.Size(164, 26);
@@ -128,7 +132,7 @@
             // 
             this.txtLastName.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.txtLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLastName.Location = new System.Drawing.Point(70, 98);
+            this.txtLastName.Location = new System.Drawing.Point(89, 47);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(164, 26);
             this.txtLastName.TabIndex = 1;
@@ -137,54 +141,54 @@
             // 
             this.txtFirstName.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.txtFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFirstName.Location = new System.Drawing.Point(70, 66);
+            this.txtFirstName.Location = new System.Drawing.Point(89, 15);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(164, 26);
             this.txtFirstName.TabIndex = 0;
             // 
-            // lblGrade
+            // lblAddress
             // 
-            this.lblGrade.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lblGrade.AutoSize = true;
-            this.lblGrade.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGrade.Location = new System.Drawing.Point(240, 202);
-            this.lblGrade.Name = "lblGrade";
-            this.lblGrade.Size = new System.Drawing.Size(54, 20);
-            this.lblGrade.TabIndex = 6;
-            this.lblGrade.Text = "Grade";
+            this.lblAddress.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblAddress.AutoSize = true;
+            this.lblAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddress.Location = new System.Drawing.Point(259, 178);
+            this.lblAddress.Name = "lblAddress";
+            this.lblAddress.Size = new System.Drawing.Size(68, 20);
+            this.lblAddress.TabIndex = 17;
+            this.lblAddress.Text = "Address";
             // 
             // btnSaveAndNew
             // 
             this.btnSaveAndNew.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnSaveAndNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveAndNew.Location = new System.Drawing.Point(70, 410);
+            this.btnSaveAndNew.Location = new System.Drawing.Point(89, 480);
             this.btnSaveAndNew.Name = "btnSaveAndNew";
             this.btnSaveAndNew.Size = new System.Drawing.Size(138, 35);
-            this.btnSaveAndNew.TabIndex = 7;
+            this.btnSaveAndNew.TabIndex = 8;
             this.btnSaveAndNew.TabStop = false;
             this.btnSaveAndNew.Text = "Save And New";
             this.btnSaveAndNew.UseVisualStyleBackColor = true;
             this.btnSaveAndNew.Click += new System.EventHandler(this.btnSaveAndNew_Click);
             // 
-            // lblStudentCode
+            // lblMobile
             // 
-            this.lblStudentCode.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lblStudentCode.AutoSize = true;
-            this.lblStudentCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStudentCode.Location = new System.Drawing.Point(240, 168);
-            this.lblStudentCode.Name = "lblStudentCode";
-            this.lblStudentCode.Size = new System.Drawing.Size(104, 20);
-            this.lblStudentCode.TabIndex = 7;
-            this.lblStudentCode.Text = "StudentCode";
+            this.lblMobile.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblMobile.AutoSize = true;
+            this.lblMobile.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMobile.Location = new System.Drawing.Point(259, 117);
+            this.lblMobile.Name = "lblMobile";
+            this.lblMobile.Size = new System.Drawing.Size(55, 20);
+            this.lblMobile.TabIndex = 20;
+            this.lblMobile.Text = "Mobile";
             // 
             // btnSaveAndClose
             // 
             this.btnSaveAndClose.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnSaveAndClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveAndClose.Location = new System.Drawing.Point(70, 369);
+            this.btnSaveAndClose.Location = new System.Drawing.Point(89, 439);
             this.btnSaveAndClose.Name = "btnSaveAndClose";
             this.btnSaveAndClose.Size = new System.Drawing.Size(138, 35);
-            this.btnSaveAndClose.TabIndex = 6;
+            this.btnSaveAndClose.TabIndex = 7;
             this.btnSaveAndClose.TabStop = false;
             this.btnSaveAndClose.Text = "Save And Close";
             this.btnSaveAndClose.UseVisualStyleBackColor = true;
@@ -195,10 +199,10 @@
             this.lblNationalCode.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lblNationalCode.AutoSize = true;
             this.lblNationalCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNationalCode.Location = new System.Drawing.Point(240, 136);
+            this.lblNationalCode.Location = new System.Drawing.Point(259, 85);
             this.lblNationalCode.Name = "lblNationalCode";
             this.lblNationalCode.Size = new System.Drawing.Size(105, 20);
-            this.lblNationalCode.TabIndex = 8;
+            this.lblNationalCode.TabIndex = 21;
             this.lblNationalCode.Text = "NationalCode";
             // 
             // lblFamilyName
@@ -206,10 +210,10 @@
             this.lblFamilyName.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lblFamilyName.AutoSize = true;
             this.lblFamilyName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFamilyName.Location = new System.Drawing.Point(240, 98);
+            this.lblFamilyName.Location = new System.Drawing.Point(259, 47);
             this.lblFamilyName.Name = "lblFamilyName";
             this.lblFamilyName.Size = new System.Drawing.Size(100, 20);
-            this.lblFamilyName.TabIndex = 9;
+            this.lblFamilyName.TabIndex = 22;
             this.lblFamilyName.Text = "Family Name";
             // 
             // lblName
@@ -217,34 +221,55 @@
             this.lblName.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(240, 66);
+            this.lblName.Location = new System.Drawing.Point(259, 15);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(51, 20);
-            this.lblName.TabIndex = 10;
+            this.lblName.TabIndex = 23;
             this.lblName.Text = "Name";
             // 
-            // FrmStudent
+            // lblField
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(413, 481);
+            this.lblField.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblField.AutoSize = true;
+            this.lblField.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblField.Location = new System.Drawing.Point(259, 146);
+            this.lblField.Name = "lblField";
+            this.lblField.Size = new System.Drawing.Size(43, 20);
+            this.lblField.TabIndex = 20;
+            this.lblField.Text = "Field";
+            // 
+            // txtField
+            // 
+            this.txtField.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.txtField.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtField.Location = new System.Drawing.Point(89, 140);
+            this.txtField.Name = "txtField";
+            this.txtField.Size = new System.Drawing.Size(164, 26);
+            this.txtField.TabIndex = 4;
+            // 
+            // FrmTeacher
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(422, 531);
             this.Controls.Add(this.gbGender);
-            this.Controls.Add(this.txtGrade);
-            this.Controls.Add(this.txtStudentCode);
+            this.Controls.Add(this.txtAddress);
+            this.Controls.Add(this.txtField);
+            this.Controls.Add(this.txtMobile);
             this.Controls.Add(this.txtNationalCode);
             this.Controls.Add(this.txtLastName);
             this.Controls.Add(this.txtFirstName);
-            this.Controls.Add(this.lblGrade);
+            this.Controls.Add(this.lblAddress);
+            this.Controls.Add(this.lblField);
             this.Controls.Add(this.btnSaveAndNew);
-            this.Controls.Add(this.lblStudentCode);
+            this.Controls.Add(this.lblMobile);
             this.Controls.Add(this.btnSaveAndClose);
             this.Controls.Add(this.lblNationalCode);
             this.Controls.Add(this.lblFamilyName);
             this.Controls.Add(this.lblName);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(429, 520);
-            this.MinimumSize = new System.Drawing.Size(429, 520);
-            this.Name = "FrmStudent";
-            this.Text = "FrmStudent";
+            this.Name = "FrmTeacher";
+            this.Text = "FrmTeacher";
             this.Load += new System.EventHandler(this.frmNewPerson_Load);
             this.gbGender.ResumeLayout(false);
             this.gbGender.PerformLayout();
@@ -259,17 +284,19 @@
         private System.Windows.Forms.RadioButton rbUnknown;
         private System.Windows.Forms.RadioButton rbFemale;
         private System.Windows.Forms.RadioButton rbMale;
-        private System.Windows.Forms.TextBox txtGrade;
-        private System.Windows.Forms.TextBox txtStudentCode;
+        private System.Windows.Forms.TextBox txtAddress;
+        private System.Windows.Forms.TextBox txtMobile;
         private System.Windows.Forms.TextBox txtNationalCode;
         private System.Windows.Forms.TextBox txtLastName;
         private System.Windows.Forms.TextBox txtFirstName;
-        private System.Windows.Forms.Label lblGrade;
+        private System.Windows.Forms.Label lblAddress;
         private System.Windows.Forms.Button btnSaveAndNew;
-        private System.Windows.Forms.Label lblStudentCode;
+        private System.Windows.Forms.Label lblMobile;
         private System.Windows.Forms.Button btnSaveAndClose;
         private System.Windows.Forms.Label lblNationalCode;
         private System.Windows.Forms.Label lblFamilyName;
         private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Label lblField;
+        private System.Windows.Forms.TextBox txtField;
     }
 }
