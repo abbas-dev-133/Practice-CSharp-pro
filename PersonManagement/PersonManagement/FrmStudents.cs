@@ -10,29 +10,34 @@ using System.Windows.Forms;
 
 namespace PersonManagement
 {
-    public partial class FrmPersons : Form
+    public partial class FrmStudents : Form
     {
-        PersonManager personManager;
-        public FrmPersons()
+        StudentManager studentManager;
+        public FrmStudents()
         {
             InitializeComponent();
-            personManager = new PersonManager();
+            studentManager = new StudentManager();
         }
         private void frmPerson_Load(object sender, EventArgs e)
-        {
+        { 
             FillDgv();
         }
         private void FillDgv()
         {
 
-            dgvShowPerson.DataSource = personManager.GetPersons().ToList();
+            dgvShowStudent.DataSource = studentManager.GetAll().ToList();
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            var frm = new FrmPerson()
+            var frm = new FrmStudent()
             {
-                Text = "Add New Person"
+                Text = "Add New Student",
+                Save = delegate (Student student)
+                {
+                    studentManager.Add(student);
+                    FillDgv();
+                }
             };
 
             if (frm.ShowDialog() == DialogResult.OK)
@@ -40,18 +45,18 @@ namespace PersonManagement
         }
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (dgvShowPerson.CurrentRow == null)
+            if (dgvShowStudent.CurrentRow == null)
             {
                 MessageBoxHelper.Error("یک ردیف را انتخاب کنید");
             }
             else
             {
-                var personToDelete = dgvShowPerson.CurrentRow.DataBoundItem as Person;
-                string questionText = $"آیا از حذف  {personToDelete.FirstName} اطمینان دارید؟";
+                var studentToDelete = dgvShowStudent.CurrentRow.DataBoundItem as Student;
+                string questionText = $"آیا از حذف  {studentToDelete.FirstName} اطمینان دارید؟";
                 var result = MessageBoxHelper.Question(questionText);
                 if (result == DialogResult.Yes)
                 {
-                    personManager.RemovePerson(personToDelete);
+                    studentManager.Remove(studentToDelete);
                     FillDgv();
                 }
             }
@@ -59,19 +64,19 @@ namespace PersonManagement
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (dgvShowPerson.CurrentRow == null)
+            if (dgvShowStudent.CurrentRow == null)
             {
                 MessageBoxHelper.Error("یک ردیف را انتخاب کنید");
             }
             else
             {
-                var personToEdit = dgvShowPerson.CurrentRow.DataBoundItem as Person;
-                var frm = new FrmPerson()
+                var studentToEdit = dgvShowStudent.CurrentRow.DataBoundItem as Student;
+                var frm = new FrmStudent()
                 {
                     Text = "Edit Person",
-                    Person = personToEdit
+                    student = studentToEdit,
+                    ShowSaveAndNewButton = false
                 };
-                
                 if (frm.ShowDialog() == DialogResult.OK)
                     FillDgv();
             }

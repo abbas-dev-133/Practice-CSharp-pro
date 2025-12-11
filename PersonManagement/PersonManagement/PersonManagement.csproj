@@ -48,30 +48,31 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MessageBoxHelper.cs" />
-    <Compile Include="FrmPerson.cs">
+    <Compile Include="FrmStudent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmPerson.Designer.cs">
-      <DependentUpon>FrmPerson.cs</DependentUpon>
+    <Compile Include="FrmStudent.Designer.cs">
+      <DependentUpon>FrmStudent.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmPersons.cs">
+    <Compile Include="FrmStudents.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmPersons.Designer.cs">
-      <DependentUpon>FrmPersons.cs</DependentUpon>
+    <Compile Include="FrmStudents.Designer.cs">
+      <DependentUpon>FrmStudents.cs</DependentUpon>
     </Compile>
     <Compile Include="Genders.cs" />
     <Compile Include="NationalCodeExtension.cs" />
     <Compile Include="OperationResult.cs" />
     <Compile Include="Person.cs" />
-    <Compile Include="PersonManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmPerson.resx">
-      <DependentUpon>FrmPerson.cs</DependentUpon>
+    <Compile Include="Student.cs" />
+    <Compile Include="StudentManager.cs" />
+    <EmbeddedResource Include="FrmStudent.resx">
+      <DependentUpon>FrmStudent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmPersons.resx">
-      <DependentUpon>FrmPersons.cs</DependentUpon>
+    <EmbeddedResource Include="FrmStudents.resx">
+      <DependentUpon>FrmStudents.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -16,7 +16,7 @@ namespace PersonManagement
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmPersons());
+            Application.Run(new FrmStudents());
         }
     }
 }

@@ -10,7 +10,6 @@ namespace PersonManagement
 {
     public class Person
     {
-        public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string NationalCode { get; set; }
@@ -32,14 +31,8 @@ namespace PersonManagement
             }
 
         }
-        public string FullName
-        {
-            get
-            {
-                return $"{FirstName} {LastName}";
-            }
-        }
-        public OperationResult Validate()
+        public virtual string FullName => $"{FirstName} {LastName}";
+        public virtual OperationResult Validate()
         {
             var checkValidNationalCode = NationalCode.ValidateNationalCode();
 
