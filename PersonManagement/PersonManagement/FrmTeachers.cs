@@ -10,32 +10,32 @@ using System.Windows.Forms;
 
 namespace PersonManagement
 {
-    public partial class FrmStudents : Form
+    public partial class FrmTeachers : Form
     {
-        StudentManager studentManager;
-        public FrmStudents()
+        TeacherManager teacherManager;
+        public FrmTeachers()
         {
             InitializeComponent();
-            studentManager = new StudentManager();
+            teacherManager = new TeacherManager();
         }
         private void frmPerson_Load(object sender, EventArgs e)
-        { 
+        {
             FillDgv();
         }
         private void FillDgv()
         {
 
-            dgvShowStudent.DataSource = studentManager.GetAll().ToList();
+            dgvShowStudent.DataSource = teacherManager.GetAll().ToList();
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            var frm = new FrmStudent()
+            var frm = new FrmTeacher()
             {
-                Text = "Add New Student",
-                Save = delegate (Student student)
+                Text = "Add New Teacher",
+                Save = delegate (Teacher teacher)
                 {
-                    studentManager.Add(student);
+                    teacherManager.Add(teacher);
                     FillDgv();
                 }
             };
@@ -51,12 +51,12 @@ namespace PersonManagement
             }
             else
             {
-                var studentToDelete = dgvShowStudent.CurrentRow.DataBoundItem as Student;
-                string questionText = $"آیا از حذف  {studentToDelete.FirstName} اطمینان دارید؟";
+                var teacherToDelete = dgvShowStudent.CurrentRow.DataBoundItem as Teacher;
+                string questionText = $"آیا از حذف  {teacherToDelete.FirstName} اطمینان دارید؟";
                 var result = MessageBoxHelper.Question(questionText);
                 if (result == DialogResult.Yes)
                 {
-                    studentManager.Remove(studentToDelete);
+                    teacherManager.Remove(teacherToDelete);
                     FillDgv();
                 }
             }
@@ -70,11 +70,11 @@ namespace PersonManagement
             }
             else
             {
-                var studentToEdit = dgvShowStudent.CurrentRow.DataBoundItem as Student;
-                var frm = new FrmStudent()
+                var teacherToEdit = dgvShowStudent.CurrentRow.DataBoundItem as Teacher;
+                var frm = new FrmTeacher()
                 {
-                    Text = "Edit Student",
-                    student = studentToEdit,
+                    Text = "Edit Teacher",
+                    teacher = teacherToEdit,
                     ShowSaveAndNewButton = false
                 };
                 if (frm.ShowDialog() == DialogResult.OK)
