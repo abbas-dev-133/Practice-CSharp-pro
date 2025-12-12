@@ -27,17 +27,17 @@ namespace PersonManagement
 
             dgvShowStudent.DataSource = teacherManager.GetAll().ToList();
         }
-
+        private void SaveTeacher(Teacher teacher)
+        {
+            teacherManager.Add(teacher);
+            FillDgv();                  
+        }
         private void btnInsert_Click(object sender, EventArgs e)
         {
             var frm = new FrmTeacher()
             {
                 Text = "Add New Teacher",
-                Save = delegate (Teacher teacher)
-                {
-                    teacherManager.Add(teacher);
-                    FillDgv();
-                }
+                Save = SaveTeacher
             };
 
             if (frm.ShowDialog() == DialogResult.OK)
