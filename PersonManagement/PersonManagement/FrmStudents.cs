@@ -75,7 +75,6 @@ namespace PersonManagement
                 {
                     Text = "Edit Student",
                     student = studentToEdit,
-                    ShowSaveAndNewButton = false
                 };
                 if (frm.ShowDialog() == DialogResult.OK)
                     FillDgv();

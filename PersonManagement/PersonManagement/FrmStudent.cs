@@ -14,10 +14,6 @@ namespace PersonManagement
         StudentManager studentManager;
         public Student student { get; set; }
         private bool isEdit = true;
-        public bool ShowSaveAndNewButton
-        {
-            set { btnSaveAndNew.Visible = value; }
-        }
         public FrmStudent()
         {
             InitializeComponent();
@@ -39,7 +35,10 @@ namespace PersonManagement
                 else if (student.Gender == Genders.Unknown)
                     rbUnknown.Checked = true;
             }
-
+            if (Text == "Edit Student")
+            {
+                btnSaveAndNew.Visible = false;
+            }
         }
         private void btnSave_Click(object sender, EventArgs e)
         {

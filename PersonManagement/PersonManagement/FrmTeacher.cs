@@ -15,10 +15,6 @@ namespace PersonManagement
         TeacherManager teacherManager;
         public Teacher teacher { get; set; }
         private bool isEdit = true;
-        public bool ShowSaveAndNewButton
-        {
-            set { btnSaveAndNew.Visible = value; }
-        }
         public FrmTeacher()
         {
             InitializeComponent();
@@ -40,6 +36,10 @@ namespace PersonManagement
                     rbFemale.Checked = true;
                 else if (teacher.Gender == Genders.Unknown)
                     rbUnknown.Checked = true;
+            }
+            if (Text == "Edit Teacher")
+            {
+                btnSaveAndNew.Visible = false;
             }
 
         }
@@ -117,7 +117,7 @@ namespace PersonManagement
         }
         private void btnSaveAndNew_Click(object sender, EventArgs e)
         {
-            btnSave_Click(sender, e);
+            btnSaveAndClose.PerformClick();
             if (DialogResult == DialogResult.OK)
             {
                 Save?.Invoke(teacher);

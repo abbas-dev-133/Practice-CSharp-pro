@@ -16,10 +16,6 @@ namespace PersonManagement
         public override OperationResult Validate()
         {
             var baseResult = base.Validate();
-            var checkValidNationalCode = NationalCode.ValidateNationalCode();
-            if (!checkValidNationalCode.IsSuccess)
-                return checkValidNationalCode;
-
             var checkValiMobile = Mobile.ValidIranianMobile();
             if (!checkValiMobile.IsSuccess)
                 return checkValiMobile;
