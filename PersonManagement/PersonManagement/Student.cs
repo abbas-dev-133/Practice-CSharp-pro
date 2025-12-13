@@ -24,10 +24,10 @@ namespace PersonManagement
         }
         public override bool Equals(object obj)
         {
-            var other = obj as Student;
-            if (other == null)
-                return false;
-            return other.StudentCode == this.StudentCode;
+           
+            if (obj is Student other)
+                 return other.StudentCode == this.StudentCode;
+            return false;
         }
         public override string FullName => $"{base.FullName} - {Grade}";
 
@@ -35,10 +35,6 @@ namespace PersonManagement
         public override OperationResult Validate()
         {
             var baseResult = base.Validate();
-            var checkValidNationalCode = NationalCode.ValidateNationalCode();
-            if (!baseResult.IsSuccess)
-                return baseResult;
-
             if (string.IsNullOrWhiteSpace(StudentCode))
                 return OperationResult.Failed("کد دانش‌آموزی وارد نشده است");
 

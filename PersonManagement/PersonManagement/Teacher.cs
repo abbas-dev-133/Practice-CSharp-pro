@@ -16,16 +16,11 @@ namespace PersonManagement
         public override OperationResult Validate()
         {
             var baseResult = base.Validate();
-            var checkValidNationalCode = NationalCode.ValidateNationalCode();
-            if (!checkValidNationalCode.IsSuccess)
-                return checkValidNationalCode;
-
             var checkValiMobile = Mobile.ValidIranianMobile();
             if (!checkValiMobile.IsSuccess)
                 return checkValiMobile;
             if (!baseResult.IsSuccess)
                 return baseResult;
-
             if (string.IsNullOrWhiteSpace(Mobile))
                 return OperationResult.Failed("تلفن همراه وارد نشده است");
 
