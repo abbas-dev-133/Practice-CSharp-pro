@@ -32,11 +32,6 @@
             this.rbUnknown = new System.Windows.Forms.RadioButton();
             this.rbFemale = new System.Windows.Forms.RadioButton();
             this.rbMale = new System.Windows.Forms.RadioButton();
-            this.txtAddress = new System.Windows.Forms.TextBox();
-            this.txtMobile = new System.Windows.Forms.TextBox();
-            this.txtNationalCode = new System.Windows.Forms.TextBox();
-            this.txtLastName = new System.Windows.Forms.TextBox();
-            this.txtFirstName = new System.Windows.Forms.TextBox();
             this.lblAddress = new System.Windows.Forms.Label();
             this.btnSaveAndNew = new System.Windows.Forms.Button();
             this.lblMobile = new System.Windows.Forms.Label();
@@ -45,7 +40,12 @@
             this.lblFamilyName = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.lblField = new System.Windows.Forms.Label();
-            this.txtField = new System.Windows.Forms.TextBox();
+            this.txtAddress = new PersonManagement.CustomTextBox();
+            this.txtField = new PersonManagement.CustomTextBox();
+            this.txtMobile = new PersonManagement.CustomTextBox();
+            this.txtNationalCode = new PersonManagement.CustomTextBox();
+            this.txtLastName = new PersonManagement.CustomTextBox();
+            this.txtFirstName = new PersonManagement.CustomTextBox();
             this.gbGender.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -97,54 +97,6 @@
             this.rbMale.TabStop = true;
             this.rbMale.Text = "Male";
             this.rbMale.UseVisualStyleBackColor = true;
-            // 
-            // txtAddress
-            // 
-            this.txtAddress.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.txtAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddress.Location = new System.Drawing.Point(89, 172);
-            this.txtAddress.Multiline = true;
-            this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(164, 120);
-            this.txtAddress.TabIndex = 5;
-            // 
-            // txtMobile
-            // 
-            this.txtMobile.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.txtMobile.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMobile.Location = new System.Drawing.Point(89, 111);
-            this.txtMobile.MaxLength = 11;
-            this.txtMobile.Name = "txtMobile";
-            this.txtMobile.Size = new System.Drawing.Size(164, 26);
-            this.txtMobile.TabIndex = 3;
-            // 
-            // txtNationalCode
-            // 
-            this.txtNationalCode.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.txtNationalCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNationalCode.Location = new System.Drawing.Point(89, 79);
-            this.txtNationalCode.MaxLength = 10;
-            this.txtNationalCode.Name = "txtNationalCode";
-            this.txtNationalCode.Size = new System.Drawing.Size(164, 26);
-            this.txtNationalCode.TabIndex = 2;
-            // 
-            // txtLastName
-            // 
-            this.txtLastName.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.txtLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLastName.Location = new System.Drawing.Point(89, 47);
-            this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(164, 26);
-            this.txtLastName.TabIndex = 1;
-            // 
-            // txtFirstName
-            // 
-            this.txtFirstName.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.txtFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFirstName.Location = new System.Drawing.Point(89, 15);
-            this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(164, 26);
-            this.txtFirstName.TabIndex = 0;
             // 
             // lblAddress
             // 
@@ -238,27 +190,61 @@
             this.lblField.TabIndex = 20;
             this.lblField.Text = "Field";
             // 
+            // txtAddress
+            // 
+            this.txtAddress.Location = new System.Drawing.Point(89, 180);
+            this.txtAddress.Multiline = true;
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(160, 112);
+            this.txtAddress.TabIndex = 5;
+            // 
             // txtField
             // 
-            this.txtField.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.txtField.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtField.Location = new System.Drawing.Point(89, 140);
+            this.txtField.Location = new System.Drawing.Point(89, 146);
             this.txtField.Name = "txtField";
-            this.txtField.Size = new System.Drawing.Size(164, 26);
+            this.txtField.Size = new System.Drawing.Size(160, 20);
             this.txtField.TabIndex = 4;
+            // 
+            // txtMobile
+            // 
+            this.txtMobile.Location = new System.Drawing.Point(89, 114);
+            this.txtMobile.Name = "txtMobile";
+            this.txtMobile.Size = new System.Drawing.Size(160, 20);
+            this.txtMobile.TabIndex = 3;
+            // 
+            // txtNationalCode
+            // 
+            this.txtNationalCode.Location = new System.Drawing.Point(89, 85);
+            this.txtNationalCode.Name = "txtNationalCode";
+            this.txtNationalCode.Size = new System.Drawing.Size(160, 20);
+            this.txtNationalCode.TabIndex = 2;
+            // 
+            // txtLastName
+            // 
+            this.txtLastName.Location = new System.Drawing.Point(89, 49);
+            this.txtLastName.Name = "txtLastName";
+            this.txtLastName.Size = new System.Drawing.Size(160, 20);
+            this.txtLastName.TabIndex = 1;
+            // 
+            // txtFirstName
+            // 
+            this.txtFirstName.Location = new System.Drawing.Point(89, 15);
+            this.txtFirstName.Name = "txtFirstName";
+            this.txtFirstName.Size = new System.Drawing.Size(160, 20);
+            this.txtFirstName.TabIndex = 0;
             // 
             // FrmTeacher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(422, 531);
-            this.Controls.Add(this.gbGender);
             this.Controls.Add(this.txtAddress);
             this.Controls.Add(this.txtField);
             this.Controls.Add(this.txtMobile);
             this.Controls.Add(this.txtNationalCode);
             this.Controls.Add(this.txtLastName);
             this.Controls.Add(this.txtFirstName);
+            this.Controls.Add(this.gbGender);
             this.Controls.Add(this.lblAddress);
             this.Controls.Add(this.lblField);
             this.Controls.Add(this.btnSaveAndNew);
@@ -284,11 +270,6 @@
         private System.Windows.Forms.RadioButton rbUnknown;
         private System.Windows.Forms.RadioButton rbFemale;
         private System.Windows.Forms.RadioButton rbMale;
-        private System.Windows.Forms.TextBox txtAddress;
-        private System.Windows.Forms.TextBox txtMobile;
-        private System.Windows.Forms.TextBox txtNationalCode;
-        private System.Windows.Forms.TextBox txtLastName;
-        private System.Windows.Forms.TextBox txtFirstName;
         private System.Windows.Forms.Label lblAddress;
         private System.Windows.Forms.Button btnSaveAndNew;
         private System.Windows.Forms.Label lblMobile;
@@ -297,6 +278,11 @@
         private System.Windows.Forms.Label lblFamilyName;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblField;
-        private System.Windows.Forms.TextBox txtField;
+        private CustomTextBox txtNationalCode;
+        private CustomTextBox txtLastName;
+        private CustomTextBox txtFirstName;
+        private CustomTextBox txtMobile;
+        private CustomTextBox txtField;
+        private CustomTextBox txtAddress;
     }
 }
