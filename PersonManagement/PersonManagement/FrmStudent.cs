@@ -12,8 +12,8 @@ namespace PersonManagement
     public partial class FrmStudent : Form
     {
         StudentManager studentManager;
-        public Student student { get; set; }
-        private bool isEdit = true;
+        public string studentId { get; set; }
+        private Student studentToEdit;
         public FrmStudent()
         {
             InitializeComponent();
@@ -21,63 +21,47 @@ namespace PersonManagement
         }
         private void frmNewPerson_Load(object sender, EventArgs e)
         {
-            if (student != null)
-            {
-                txtFirstName.Text = student.FirstName;
-                txtLastName.Text = student.LastName;
-                txtNationalCode.Text = student.NationalCode;
-                txtGrade.Text = student.Grade;
-                txtStudentCode.Text = student.StudentCode;
-                if (student.Gender == Genders.Male)
-                    rbMale.Checked = true;
-                else if (student.Gender == Genders.Female)
-                    rbFemale.Checked = true;
-                else if (student.Gender == Genders.Unknown)
-                    rbUnknown.Checked = true;
-            }
-            if (Text == "Edit Student")
+            if (!string.IsNullOrEmpty(studentId))
             {
                 btnSaveAndNew.Visible = false;
+                studentToEdit = studentManager.Get(studentId);
+                txtFirstName.Text = studentToEdit.FirstName;
+                txtLastName.Text = studentToEdit.LastName;
+                txtNationalCode.Text = studentToEdit.NationalCode;
+                txtGrade.Text = studentToEdit.Grade;
+                txtStudentCode.Text = studentToEdit.StudentCode;
+                txtStudentCode.Enabled = false;
+                if(studentToEdit.Gender== Genders.Male)
+                    rbMale.Checked = true;
+                else if(studentToEdit.Gender== Genders.Female)
+                    rbFemale.Checked = true;
+                else if(studentToEdit.Gender==Genders.Unknown)
+                    rbUnknown.Checked = true;
             }
+
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (student == null)
-            {
-                student = new Student(txtStudentCode.Text);
-                isEdit = false;
-            }
-            student.FirstName = txtFirstName.Text;
-            student.LastName = txtLastName.Text;
-            student.NationalCode = txtNationalCode.Text;
-            student.Grade = txtGrade.Text;
-
-            if (rbMale.Checked)
-                student.Gender = Genders.Male;
-            else if (rbFemale.Checked)
-                student.Gender = Genders.Female;
-            else if (rbUnknown.Checked)
-                student.Gender = Genders.Unknown;
-            else
-                student.Gender = Genders.None;
-
+            if (studentToEdit == null)
+                studentToEdit = new Student(txtStudentCode.Text);
+            studentToEdit.FirstName = txtFirstName.Text;
+            studentToEdit.LastName = txtLastName.Text;
+            studentToEdit.Grade = txtGrade.Text;
+            studentToEdit.NationalCode = txtNationalCode.Text;
+            if(rbMale.Checked) studentToEdit.Gender = Genders.Male;
+            else if (rbFemale.Checked) studentToEdit.Gender = Genders.Female;
+            else if (rbUnknown.Checked) studentToEdit.Gender = Genders.Unknown;
             OperationResult result;
-            if (!isEdit)
-            {
-                result = studentManager.Add(student);
-            }
+            if (string.IsNullOrEmpty(studentId))
+                result = studentManager.Add(studentToEdit);
             else
-                result = studentManager.Edit(student);
+                result = studentManager.Edit(studentToEdit);
 
             if (!result.IsSuccess)
             {
                 MessageBoxHelper.Error(result.Message);
-                if (!isEdit)
-                    student = null;
                 return;
             }
-
-
             DialogResult = DialogResult.OK;
         }
 
@@ -106,18 +90,17 @@ namespace PersonManagement
             rbMale.Checked = false;
             rbFemale.Checked = false;
             rbUnknown.Checked = false;
-            student = null;
-            isEdit = false;
         }
         private void btnSaveAndNew_Click(object sender, EventArgs e)
         {
             btnSave_Click(sender, e);
-            if(DialogResult  == DialogResult.OK)
+           
+            if (DialogResult == DialogResult.OK)
             {
-                Save?.Invoke(student);
+                Save?.Invoke(studentToEdit);
                 ResetFormForNewEntry();
                 DialogResult = DialogResult.None;
-            }        
+            }
         }
         public Action<Student> Save { get; set; }
     }

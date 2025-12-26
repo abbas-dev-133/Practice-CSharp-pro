@@ -24,7 +24,6 @@ namespace PersonManagement
         }
         private void FillDgv()
         {
-
             dgvShowStudent.DataSource = studentManager.GetAll().ToList();
         }
         private void SaveStudent(Student student)
@@ -37,7 +36,7 @@ namespace PersonManagement
             var frm = new FrmStudent()
             {
                 Text = "Add New Student",
-                Save = SaveStudent
+                Save = SaveStudent,
             };
 
             if (frm.ShowDialog() == DialogResult.OK)
@@ -74,7 +73,7 @@ namespace PersonManagement
                 var frm = new FrmStudent()
                 {
                     Text = "Edit Student",
-                    student = studentToEdit,
+                    studentId = studentToEdit.StudentCode
                 };
                 if (frm.ShowDialog() == DialogResult.OK)
                     FillDgv();
