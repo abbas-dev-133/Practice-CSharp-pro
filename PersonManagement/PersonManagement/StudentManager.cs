@@ -15,6 +15,19 @@ namespace PersonManagement
             if(students == null)
                 students = new List<Student>();
         }
+        public Student Get (string studentCode)
+        {
+            Student foundStudent = null;
+            foreach (var s in students)
+            {
+                if (s.StudentCode == studentCode)
+                {
+                    foundStudent = s;
+                    break;
+                } 
+            }
+            return foundStudent;
+        }
         public OperationResult Add(Student student)
         {
             var validation = student.Validate();
