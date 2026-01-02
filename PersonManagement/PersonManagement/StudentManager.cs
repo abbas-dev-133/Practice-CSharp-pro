@@ -12,26 +12,19 @@ namespace PersonManagement
         private static List<Student> students;
         public StudentManager()
         {
-            if(students == null)
+            if (students == null)
                 students = new List<Student>();
         }
-        public Student Get(string studentCode)
+        public OperationResult<Student> GetByStudentCode(string studentCode)
         {
             foreach (var s in students)
             {
                 if (s.StudentCode == studentCode)
                 {
-                    return new Student(s.StudentCode)
-                    {
-                        FirstName = s.FirstName,
-                        LastName = s.LastName,
-                        NationalCode = s.NationalCode,
-                        Gender = s.Gender,
-                        Grade = s.Grade
-                    };
+                    return  OperationResult<Student>.Success("دانش آموز با موفقیت پیدا شد", s);
                 }
             }
-            return null;
+            return  OperationResult<Student>.Failed("دانش آموز پیدا نشد");
         }
         public OperationResult Add(Student student)
         {
@@ -60,7 +53,7 @@ namespace PersonManagement
             Student studentToEdit = null;
             foreach (var item in students)
             {
-                if(item.StudentCode== student.StudentCode)
+                if (item.StudentCode == student.StudentCode)
                 {
                     studentToEdit = item;
                     break;
@@ -68,12 +61,12 @@ namespace PersonManagement
             }
             foreach (var item in students)
             {
-                if (item != studentToEdit && item.NationalCode== student.NationalCode)
+                if (item != studentToEdit && item.NationalCode == student.NationalCode)
                     return OperationResult.Failed(" کد ملی تکراری است");
             }
             if (studentToEdit == null)
                 return OperationResult.Failed("دانشجو مورد نظر پیدا نشد");
-            studentToEdit.FirstName = student.FirstName;    
+            studentToEdit.FirstName = student.FirstName;
             studentToEdit.LastName = student.LastName;
             studentToEdit.NationalCode = student.NationalCode;
             studentToEdit.Gender = student.Gender;

@@ -201,6 +201,7 @@
             // txtStudentCode
             // 
             this.txtStudentCode.Location = new System.Drawing.Point(70, 168);
+            this.txtStudentCode.MaxLength = 10;
             this.txtStudentCode.Name = "txtStudentCode";
             this.txtStudentCode.Size = new System.Drawing.Size(160, 20);
             this.txtStudentCode.TabIndex = 3;

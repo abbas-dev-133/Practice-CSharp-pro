@@ -14,6 +14,7 @@ namespace PersonManagement
         StudentManager studentManager;
         public string studentId { get; set; }
         private Student studentToEdit;
+        private Student editedStudent;
         public FrmStudent()
         {
             InitializeComponent();
@@ -24,43 +25,68 @@ namespace PersonManagement
             if (!string.IsNullOrEmpty(studentId))
             {
                 btnSaveAndNew.Visible = false;
-                studentToEdit = studentManager.Get(studentId);
-                txtFirstName.Text = studentToEdit.FirstName;
-                txtLastName.Text = studentToEdit.LastName;
-                txtNationalCode.Text = studentToEdit.NationalCode;
-                txtGrade.Text = studentToEdit.Grade;
-                txtStudentCode.Text = studentToEdit.StudentCode;
+                var result = studentManager.GetByStudentCode(studentId);
+
+                if (!result.IsSuccess)
+                {
+                    MessageBoxHelper.Error(result.Message);
+                    Close();
+                    return;
+                }
+
+                studentToEdit = result.Data;
+                var clone = studentToEdit.Clone();
+
+                txtFirstName.Text = clone.FirstName;
+                txtLastName.Text = clone.LastName;
+                txtNationalCode.Text = clone.NationalCode;
+                txtGrade.Text = clone.Grade;
+                txtStudentCode.Text = clone.StudentCode;
                 txtStudentCode.Enabled = false;
-                if(studentToEdit.Gender== Genders.Male)
+                if (clone.Gender == Genders.Male)
                     rbMale.Checked = true;
-                else if(studentToEdit.Gender== Genders.Female)
+                else if (clone.Gender == Genders.Female)
                     rbFemale.Checked = true;
-                else if(studentToEdit.Gender==Genders.Unknown)
+                else if (clone.Gender == Genders.Unknown)
                     rbUnknown.Checked = true;
+                editedStudent = clone;
             }
 
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (studentToEdit == null)
-                studentToEdit = new Student(txtStudentCode.Text);
-            studentToEdit.FirstName = txtFirstName.Text;
-            studentToEdit.LastName = txtLastName.Text;
-            studentToEdit.Grade = txtGrade.Text;
-            studentToEdit.NationalCode = txtNationalCode.Text;
-            if(rbMale.Checked) studentToEdit.Gender = Genders.Male;
-            else if (rbFemale.Checked) studentToEdit.Gender = Genders.Female;
-            else if (rbUnknown.Checked) studentToEdit.Gender = Genders.Unknown;
+            if (editedStudent == null) 
+                editedStudent = new Student(txtStudentCode.Text);
+            editedStudent.FirstName = txtFirstName.Text;
+            editedStudent.LastName = txtLastName.Text;
+            editedStudent.NationalCode = txtNationalCode.Text;
+            editedStudent.Grade = txtGrade.Text;
+            if (rbMale.Checked)
+                editedStudent.Gender = Genders.Male;
+            else if (rbFemale.Checked)
+                editedStudent.Gender = Genders.Female;
+            else if (rbUnknown.Checked)
+                editedStudent.Gender = Genders.Unknown;
             OperationResult result;
-            if (string.IsNullOrEmpty(studentId))
-                result = studentManager.Add(studentToEdit);
-            else
-                result = studentManager.Edit(studentToEdit);
-
-            if (!result.IsSuccess)
+            if (studentToEdit == null)
             {
-                MessageBoxHelper.Error(result.Message);
-                return;
+                result = studentManager.Add(editedStudent);
+                if (!result.IsSuccess)
+                {
+                    MessageBoxHelper.Error(result.Message);
+                    return;
+                }
+                studentToEdit= editedStudent;
+            }
+            else
+            {
+
+                result = studentManager.Edit(editedStudent);
+                if (!result.IsSuccess)
+                {
+                    MessageBoxHelper.Error(result.Message);
+                    return;
+                }
             }
             DialogResult = DialogResult.OK;
         }
@@ -94,7 +120,7 @@ namespace PersonManagement
         private void btnSaveAndNew_Click(object sender, EventArgs e)
         {
             btnSave_Click(sender, e);
-           
+
             if (DialogResult == DialogResult.OK)
             {
                 Save?.Invoke(studentToEdit);

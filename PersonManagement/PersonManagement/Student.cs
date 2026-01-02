@@ -43,5 +43,16 @@ namespace PersonManagement
 
             return OperationResult.Success("اطلاعات معتبر است");
         }
+        public Student Clone()
+        {
+            return new Student(this.StudentCode)
+            {
+                FirstName = this.FirstName,
+                LastName = this.LastName,
+                NationalCode = this.NationalCode,
+                Grade = this.Grade,
+                Gender = this.Gender
+            };
+        }
     }
 }

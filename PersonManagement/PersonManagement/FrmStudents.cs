@@ -28,7 +28,12 @@ namespace PersonManagement
         }
         private void SaveStudent(Student student)
         {
-            studentManager.Add(student);
+            var result = studentManager.Add(student);
+            if (!result.IsSuccess)
+            {
+                MessageBoxHelper.Error(result.Message);
+                return;
+            }
             FillDgv();
         }
         private void btnInsert_Click(object sender, EventArgs e)
