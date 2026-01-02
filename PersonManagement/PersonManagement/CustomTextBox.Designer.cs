@@ -28,31 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtCustom = new System.Windows.Forms.TextBox();
-            this.SuspendLayout();
-            // 
-            // txtCustom
-            // 
-            this.txtCustom.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtCustom.Location = new System.Drawing.Point(0, 0);
-            this.txtCustom.Name = "txtCustom";
-            this.txtCustom.Size = new System.Drawing.Size(144, 20);
-            this.txtCustom.TabIndex = 0;
-            this.txtCustom.Enter += new System.EventHandler(this.txtCustom_Enter);
-            this.txtCustom.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCustom_KeyDown);
-            this.txtCustom.Leave += new System.EventHandler(this.txtCustom_Leave);
-            // 
-            // CustomTextBox
-            // 
-            this.Controls.Add(this.txtCustom);
-            this.Size = new System.Drawing.Size(148, 20);
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            components = new System.ComponentModel.Container();
+           // this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txtCustom;
     }
 }

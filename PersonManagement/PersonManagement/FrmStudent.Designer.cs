@@ -179,38 +179,37 @@
             // 
             // txtFirstName
             // 
-            this.txtFirstName.Location = new System.Drawing.Point(70, 66);
+            this.txtFirstName.Location = new System.Drawing.Point(70, 68);
             this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(160, 20);
+            this.txtFirstName.Size = new System.Drawing.Size(164, 20);
             this.txtFirstName.TabIndex = 0;
             // 
             // txtLastName
             // 
             this.txtLastName.Location = new System.Drawing.Point(70, 100);
             this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(160, 20);
+            this.txtLastName.Size = new System.Drawing.Size(164, 20);
             this.txtLastName.TabIndex = 1;
             // 
             // txtNationalCode
             // 
-            this.txtNationalCode.Location = new System.Drawing.Point(70, 136);
+            this.txtNationalCode.Location = new System.Drawing.Point(70, 138);
             this.txtNationalCode.Name = "txtNationalCode";
-            this.txtNationalCode.Size = new System.Drawing.Size(160, 20);
+            this.txtNationalCode.Size = new System.Drawing.Size(164, 20);
             this.txtNationalCode.TabIndex = 2;
             // 
             // txtStudentCode
             // 
-            this.txtStudentCode.Location = new System.Drawing.Point(70, 168);
-            this.txtStudentCode.MaxLength = 10;
+            this.txtStudentCode.Location = new System.Drawing.Point(70, 170);
             this.txtStudentCode.Name = "txtStudentCode";
-            this.txtStudentCode.Size = new System.Drawing.Size(160, 20);
+            this.txtStudentCode.Size = new System.Drawing.Size(164, 20);
             this.txtStudentCode.TabIndex = 3;
             // 
             // txtGrade
             // 
-            this.txtGrade.Location = new System.Drawing.Point(70, 202);
+            this.txtGrade.Location = new System.Drawing.Point(71, 204);
             this.txtGrade.Name = "txtGrade";
-            this.txtGrade.Size = new System.Drawing.Size(160, 20);
+            this.txtGrade.Size = new System.Drawing.Size(164, 20);
             this.txtGrade.TabIndex = 4;
             // 
             // FrmStudent

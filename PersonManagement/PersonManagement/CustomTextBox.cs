@@ -13,34 +13,32 @@ namespace PersonManagement
     public partial class CustomTextBox : TextBox
     {
         private Color _defaultBackColor;
-
-        public CustomTextBox()
+        protected override void OnEnter(EventArgs e)
         {
-            this.Enter += txtCustom_Enter;
-            this.Leave += txtCustom_Leave;
-            this.KeyDown += txtCustom_KeyDown;
+            base.OnEnter(e);
+            _defaultBackColor = BackColor;
+            BackColor = Color.LightYellow;
         }
-
-        private void txtCustom_Enter(object sender, EventArgs e)
+        protected override void OnLeave(EventArgs e)
         {
-            _defaultBackColor = this.BackColor;
-            this.BackColor = Color.WhiteSmoke;
+            base.OnLeave(e);
+            BackColor = _defaultBackColor;
         }
-
-        private void txtCustom_Leave(object sender, EventArgs e)
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            this.BackColor = _defaultBackColor;
-        }
-
-        private void txtCustom_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
+            if (keyData == Keys.Enter)
             {
-                e.SuppressKeyPress = true;
-                this.Parent.SelectNextControl(this, true, true, true, true);
+                Parent.SelectNextControl(
+                                    this,
+                                    true,
+                                    true,
+                                    true,
+                                    true
+                                );
+                return true;
             }
-        }
 
-       
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
     }
 }
