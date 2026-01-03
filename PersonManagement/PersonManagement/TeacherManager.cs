@@ -22,12 +22,12 @@ namespace PersonManagement
             foreach (var item in teachers)
             {
                 if (teacher.Mobile == item.Mobile)
-                    return OperationResult.Failed("شماره تلفن همراه تکراری است");
+                    return OperationResult.Failed(Messages.DuplicateMobileNumber);
                 if (teacher.NationalCode == item.NationalCode)
-                    return OperationResult.Failed(" کد ملی تکراری است");
+                    return OperationResult.Failed(Messages.DuplicateNationalCode);
             }
             teachers.Add(teacher);
-            return OperationResult.Success("معلم با موفقیت ثبت شد");
+            return OperationResult.Success(Messages.TeacherCreatedSuccessfully);
         }
         public void Remove(Teacher teacher)
         {
@@ -50,10 +50,10 @@ namespace PersonManagement
             foreach (var item in teachers)
             {
                 if (item != teacherToEdit && item.NationalCode == teacher.NationalCode)
-                    return OperationResult.Failed(" کد ملی تکراری است");
+                    return OperationResult.Failed(Messages.DuplicateNationalCode);
             }
             if (teacherToEdit == null)
-                return OperationResult.Failed("معلم مورد نظر پیدا نشد");
+                return OperationResult.Failed(Messages.TeacherNotFound);
             teacherToEdit.FirstName = teacher.FirstName;
             teacherToEdit.LastName = teacher.LastName;
             teacherToEdit.NationalCode = teacher.NationalCode;
@@ -61,7 +61,7 @@ namespace PersonManagement
             teacherToEdit.Mobile = teacher.Mobile;
             teacherToEdit.Address = teacher.Address;
             teacherToEdit.Field = teacher.Field;
-            return OperationResult.Success("معلم با موفقیت ویرایش شد");
+            return OperationResult.Success(Messages.TeacherUpdatedSuccessfully);
         }
         public IReadOnlyList<Teacher> GetAll()
         {

@@ -22,14 +22,14 @@ namespace PersonManagement
             if (!baseResult.IsSuccess)
                 return baseResult;
             if (string.IsNullOrWhiteSpace(Mobile))
-                return OperationResult.Failed("تلفن همراه وارد نشده است");
+                return OperationResult.Failed(Messages.MobileNumberIsRequired);
 
             if (string.IsNullOrWhiteSpace(Address))
-                return OperationResult.Failed("آدرس وارد نشده است");
+                return OperationResult.Failed(Messages.AddressIsRequired);
             if (string.IsNullOrWhiteSpace(Field))
-                return OperationResult.Failed("رشته وارد نشده است");
+                return OperationResult.Failed(Messages.FieldOfStudyIsRequired);
 
-            return OperationResult.Success("اطلاعات معتبر است");
+            return OperationResult.Success(Messages.InformationIsValid);
         }
     }
 }

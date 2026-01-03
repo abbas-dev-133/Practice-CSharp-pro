@@ -12,7 +12,7 @@ namespace PersonManagement
         {
             if (string.IsNullOrWhiteSpace(nationalCode) || nationalCode.Length != 10)
             {
-                return OperationResult.Failed("کد ملی باید 10 رقم باشد.");
+                return OperationResult.Failed(Messages.NationalCodeLengthInvalid);
             }
           
 
@@ -37,23 +37,23 @@ namespace PersonManagement
                     case "7777777777":
                     case "8888888888":
                     case "9999999999":
-                        return OperationResult.Failed("کد ملی معتبر نیست.");
+                        return OperationResult.Failed(Messages.NationalCodeInvalid);
 
                 }
                 int num3 = ((((((((numArray[0] * 10) + (numArray[1] * 9)) + (numArray[2] * 8)) + (numArray[3] * 7)) + (numArray[4] * 6)) + (numArray[5] * 5)) + (numArray[6] * 4)) + (numArray[7] * 3)) + (numArray[8] * 2);
                 int num4 = num3 - ((num3 / 11) * 11);
                 if ((((num4 == 0) && (num2 == num4)) || ((num4 == 1) && (num2 == 1))) || ((num4 > 1) && (num2 == Math.Abs((int)(num4 - 11)))))
                 {
-                   return OperationResult.Success("کد ملی معتبر است.");
+                   return OperationResult.Success(Messages.NationalCodeValid);
                 }
                 else
                 {
-                    return OperationResult.Failed("کد ملی معتبر نیست.");
+                    return OperationResult.Failed(Messages.NationalCodeInvalid);
                 }
             }
             catch
             {
-                return OperationResult.Failed("کد ملی معتبر نیست.");
+                return OperationResult.Failed(Messages.NationalCodeInvalid);
             }
            
         }

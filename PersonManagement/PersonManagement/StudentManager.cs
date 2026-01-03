@@ -21,10 +21,10 @@ namespace PersonManagement
             {
                 if (s.StudentCode == studentCode)
                 {
-                    return  OperationResult<Student>.Success("دانش آموز با موفقیت پیدا شد", s);
+                    return  OperationResult<Student>.Success(Messages.StudentFoundSuccessfully, s);
                 }
             }
-            return  OperationResult<Student>.Failed("دانش آموز پیدا نشد");
+            return  OperationResult<Student>.Failed(Messages.StudentNotFound);
         }
         public OperationResult Add(Student student)
         {
@@ -34,12 +34,12 @@ namespace PersonManagement
             foreach (var item in students)
             {
                 if (student.StudentCode == item.StudentCode)
-                    return OperationResult.Failed("کد دانشجویی تکراری است");
+                    return OperationResult.Failed(Messages.DuplicateStudentCode);
                 if (student.NationalCode == item.NationalCode)
-                    return OperationResult.Failed(" کد ملی تکراری است");
+                    return OperationResult.Failed(Messages.DuplicateNationalCode);
             }
             students.Add(student);
-            return OperationResult.Success("دانشجو با موفقیت ثبت شد");
+            return OperationResult.Success(Messages.StudentCreatedSuccessfully);
         }
         public void Remove(Student student)
         {
@@ -62,16 +62,16 @@ namespace PersonManagement
             foreach (var item in students)
             {
                 if (item != studentToEdit && item.NationalCode == student.NationalCode)
-                    return OperationResult.Failed(" کد ملی تکراری است");
+                    return OperationResult.Failed(Messages.DuplicateNationalCode);
             }
             if (studentToEdit == null)
-                return OperationResult.Failed("دانشجو مورد نظر پیدا نشد");
+                return OperationResult.Failed(Messages.StudentNotFound);
             studentToEdit.FirstName = student.FirstName;
             studentToEdit.LastName = student.LastName;
             studentToEdit.NationalCode = student.NationalCode;
             studentToEdit.Gender = student.Gender;
             studentToEdit.Grade = student.Grade;
-            return OperationResult.Success("دانشجو با موفقیت ویرایش شد");
+            return OperationResult.Success(Messages.StudentUpdatedSuccessfully);
         }
         public IReadOnlyList<Student> GetAll()
         {

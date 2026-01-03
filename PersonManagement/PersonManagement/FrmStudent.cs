@@ -38,7 +38,7 @@ namespace PersonManagement
                 var clone = studentToEdit.Clone();
 
                 txtFirstName.Text = clone.FirstName;
-                txtFirstName.Text = clone.LastName;
+                txtLastName.Text = clone.LastName;
                 txtNationalCode.Text = clone.NationalCode;
                 txtGrade.Text = clone.Grade;
                 txtStudentCode.Text = clone.StudentCode;

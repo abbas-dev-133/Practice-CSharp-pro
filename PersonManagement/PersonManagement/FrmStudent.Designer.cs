@@ -39,11 +39,11 @@
             this.lblNationalCode = new System.Windows.Forms.Label();
             this.lblFamilyName = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
-            this.txtFirstName = new PersonManagement.CustomTextBox();
-            this.txtLastName = new PersonManagement.CustomTextBox();
-            this.txtNationalCode = new PersonManagement.CustomTextBox();
-            this.txtStudentCode = new PersonManagement.CustomTextBox();
-            this.txtGrade = new PersonManagement.CustomTextBox();
+            this.txtFirstName = new System.Windows.Forms.TextBox();
+            this.txtNationalCode = new System.Windows.Forms.TextBox();
+            this.txtLastName = new System.Windows.Forms.TextBox();
+            this.txtGrade = new System.Windows.Forms.TextBox();
+            this.txtStudentCode = new System.Windows.Forms.TextBox();
             this.gbGender.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -179,10 +179,17 @@
             // 
             // txtFirstName
             // 
-            this.txtFirstName.Location = new System.Drawing.Point(70, 68);
+            this.txtFirstName.Location = new System.Drawing.Point(70, 66);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(164, 20);
             this.txtFirstName.TabIndex = 0;
+            // 
+            // txtNationalCode
+            // 
+            this.txtNationalCode.Location = new System.Drawing.Point(70, 136);
+            this.txtNationalCode.Name = "txtNationalCode";
+            this.txtNationalCode.Size = new System.Drawing.Size(164, 20);
+            this.txtNationalCode.TabIndex = 2;
             // 
             // txtLastName
             // 
@@ -191,35 +198,28 @@
             this.txtLastName.Size = new System.Drawing.Size(164, 20);
             this.txtLastName.TabIndex = 1;
             // 
-            // txtNationalCode
-            // 
-            this.txtNationalCode.Location = new System.Drawing.Point(70, 138);
-            this.txtNationalCode.Name = "txtNationalCode";
-            this.txtNationalCode.Size = new System.Drawing.Size(164, 20);
-            this.txtNationalCode.TabIndex = 2;
-            // 
-            // txtStudentCode
-            // 
-            this.txtStudentCode.Location = new System.Drawing.Point(70, 170);
-            this.txtStudentCode.Name = "txtStudentCode";
-            this.txtStudentCode.Size = new System.Drawing.Size(164, 20);
-            this.txtStudentCode.TabIndex = 3;
-            // 
             // txtGrade
             // 
-            this.txtGrade.Location = new System.Drawing.Point(71, 204);
+            this.txtGrade.Location = new System.Drawing.Point(70, 198);
             this.txtGrade.Name = "txtGrade";
             this.txtGrade.Size = new System.Drawing.Size(164, 20);
             this.txtGrade.TabIndex = 4;
+            // 
+            // txtStudentCode
+            // 
+            this.txtStudentCode.Location = new System.Drawing.Point(70, 162);
+            this.txtStudentCode.Name = "txtStudentCode";
+            this.txtStudentCode.Size = new System.Drawing.Size(164, 20);
+            this.txtStudentCode.TabIndex = 3;
             // 
             // FrmStudent
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(413, 481);
-            this.Controls.Add(this.txtGrade);
             this.Controls.Add(this.txtStudentCode);
-            this.Controls.Add(this.txtNationalCode);
+            this.Controls.Add(this.txtGrade);
             this.Controls.Add(this.txtLastName);
+            this.Controls.Add(this.txtNationalCode);
             this.Controls.Add(this.txtFirstName);
             this.Controls.Add(this.gbGender);
             this.Controls.Add(this.lblGrade);
@@ -255,10 +255,10 @@
         private System.Windows.Forms.Label lblNationalCode;
         private System.Windows.Forms.Label lblFamilyName;
         private System.Windows.Forms.Label lblName;
-        private CustomTextBox txtFirstName;
-        private CustomTextBox txtLastName;
-        private CustomTextBox txtNationalCode;
-        private CustomTextBox txtStudentCode;
-        private CustomTextBox txtGrade;
+        private System.Windows.Forms.TextBox txtFirstName;
+        private System.Windows.Forms.TextBox txtNationalCode;
+        private System.Windows.Forms.TextBox txtLastName;
+        private System.Windows.Forms.TextBox txtGrade;
+        private System.Windows.Forms.TextBox txtStudentCode;
     }
 }

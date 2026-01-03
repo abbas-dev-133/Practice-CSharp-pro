@@ -52,12 +52,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomTextBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="CustomTextBox.Designer.cs">
-      <DependentUpon>CustomTextBox.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +84,7 @@
       <DependentUpon>FrmStudents.cs</DependentUpon>
     </Compile>
     <Compile Include="Genders.cs" />
+    <Compile Include="Messages.cs" />
     <Compile Include="NationalCodeExtension.cs" />
     <Compile Include="OperationResult.cs" />
     <Compile Include="Person.cs" />
