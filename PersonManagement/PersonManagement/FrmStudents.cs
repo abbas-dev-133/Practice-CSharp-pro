@@ -78,7 +78,7 @@ namespace PersonManagement
                 var frm = new FrmStudent()
                 {
                     Text = "Edit Student",
-                    studentId = studentToEdit.StudentCode
+                    StudentId = studentToEdit.StudentCode
                 };
                 if (frm.ShowDialog() == DialogResult.OK)
                     FillDgv();

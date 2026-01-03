@@ -14,6 +14,17 @@ namespace PersonManagement
             if(teachers == null)
                 teachers = new List<Teacher>();
         }
+        public OperationResult<Teacher> GetByMobile(string mobile)
+        {
+            foreach (var s in teachers)
+            {
+                if (s.Mobile == mobile)
+                {
+                    return OperationResult<Teacher>.Success(Messages.TeacherFoundSuccessfully, s);
+                }
+            }
+            return OperationResult<Teacher>.Failed(Messages.StudentNotFound);
+        }
         public OperationResult Add(Teacher teacher)
         {
             var validation = teacher.Validate();

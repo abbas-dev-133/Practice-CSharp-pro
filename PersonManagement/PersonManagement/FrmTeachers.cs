@@ -29,7 +29,12 @@ namespace PersonManagement
         }
         private void SaveTeacher(Teacher teacher)
         {
-            teacherManager.Add(teacher);
+           var result = teacherManager.Add(teacher);
+            if (!result.IsSuccess)
+            {
+                MessageBoxHelper.Error(result.Message);
+                return;
+            }
             FillDgv();                  
         }
         private void btnInsert_Click(object sender, EventArgs e)
@@ -74,7 +79,7 @@ namespace PersonManagement
                 var frm = new FrmTeacher()
                 {
                     Text = "Edit Teacher",
-                    teacher = teacherToEdit,
+                    MobileNumber = teacherToEdit.Mobile
                 };
                 if (frm.ShowDialog() == DialogResult.OK)
                     FillDgv();

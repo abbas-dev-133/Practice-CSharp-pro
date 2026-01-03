@@ -9,7 +9,16 @@ namespace PersonManagement
 {
     public class Teacher: Person
     {
-        public string Mobile {  get; set; }
+        private string _mobile;
+        public Teacher(string mobile)
+        {
+            _mobile = mobile;
+        }
+        public string Mobile 
+        {
+            get { return _mobile; }
+            set { _mobile = value; }
+        }
         public string Address { get; set; }
         public string Field { get; set; }
 
@@ -30,6 +39,18 @@ namespace PersonManagement
                 return OperationResult.Failed(Messages.FieldOfStudyIsRequired);
 
             return OperationResult.Success(Messages.InformationIsValid);
+        }
+        public Teacher Clone()
+        {
+            return new Teacher(this.Mobile)
+            {
+                FirstName = this.FirstName,
+                LastName = this.LastName,
+                NationalCode = this.NationalCode,
+                Gender = this.Gender,
+                Address = this.Address,
+                Field = this.Field
+            };
         }
     }
 }

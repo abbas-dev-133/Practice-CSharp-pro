@@ -36,7 +36,10 @@
         {
             get { return "دانش آموز با موفقیت پیدا شد"; }
         }
-
+        public static string TeacherFoundSuccessfully
+        {
+            get { return "معلم با موفقیت پیدا شد"; }
+        }
         public static string StudentNotFound
         {
             get { return "دانش آموز پیدا نشد"; }

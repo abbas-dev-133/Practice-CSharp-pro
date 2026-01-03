@@ -12,7 +12,7 @@ namespace PersonManagement
     public partial class FrmStudent : Form
     {
         StudentManager studentManager;
-        public string studentId { get; set; }
+        public string StudentId { get; set; }
         private Student studentToEdit;
         private Student editedStudent;
         public FrmStudent()
@@ -22,10 +22,10 @@ namespace PersonManagement
         }
         private void frmNewPerson_Load(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(studentId))
+            if (!string.IsNullOrEmpty(StudentId))
             {
                 btnSaveAndNew.Visible = false;
-                var result = studentManager.GetByStudentCode(studentId);
+                var result = studentManager.GetByStudentCode(StudentId);
 
                 if (!result.IsSuccess)
                 {

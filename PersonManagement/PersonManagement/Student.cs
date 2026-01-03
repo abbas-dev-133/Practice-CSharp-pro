@@ -16,6 +16,7 @@ namespace PersonManagement
         public string StudentCode
         {
             get { return _studentCode; } 
+            set { _studentCode = value; }
         }
         public string Grade { get; set; }
         public override string ToString()
