@@ -47,7 +47,7 @@ namespace PersonManagement
         {
             if (dgvShowStudent.CurrentRow == null)
             {
-                MessageBoxHelper.Error("یک ردیف را انتخاب کنید");
+                MessageBoxHelper.Error(Messages.PleaseSelectRow);
             }
             else
             {
@@ -66,7 +66,7 @@ namespace PersonManagement
         {
             if (dgvShowStudent.CurrentRow == null)
             {
-                MessageBoxHelper.Error("یک ردیف را انتخاب کنید");
+                MessageBoxHelper.Error(Messages.PleaseSelectRow);
             }
             else
             {

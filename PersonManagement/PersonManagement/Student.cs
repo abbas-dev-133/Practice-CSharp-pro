@@ -36,12 +36,12 @@ namespace PersonManagement
         {
             var baseResult = base.Validate();
             if (string.IsNullOrWhiteSpace(StudentCode))
-                return OperationResult.Failed("کد دانش‌آموزی وارد نشده است");
+                return OperationResult.Failed(Messages.StudentCodeIsRequired);
 
             if (string.IsNullOrWhiteSpace(Grade))
-                return OperationResult.Failed("مقطع تحصیلی وارد نشده است");
+                return OperationResult.Failed(Messages.GradeIsRequired);
 
-            return OperationResult.Success("اطلاعات معتبر است");
+            return OperationResult.Success(Messages.InformationIsValid);
         }
         public Student Clone()
         {

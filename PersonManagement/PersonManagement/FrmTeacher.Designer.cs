@@ -40,12 +40,6 @@
             this.lblFamilyName = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.lblField = new System.Windows.Forms.Label();
-            this.txtAddress = new PersonManagement.CustomTextBox();
-            this.txtField = new PersonManagement.CustomTextBox();
-            this.txtMobile = new PersonManagement.CustomTextBox();
-            this.txtNationalCode = new PersonManagement.CustomTextBox();
-            this.txtLastName = new PersonManagement.CustomTextBox();
-            this.txtFirstName = new PersonManagement.CustomTextBox();
             this.gbGender.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -192,58 +186,13 @@
             // 
             // txtAddress
             // 
-            this.txtAddress.Location = new System.Drawing.Point(89, 180);
-            this.txtAddress.Multiline = true;
-            this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(160, 112);
-            this.txtAddress.TabIndex = 5;
-            // 
-            // txtField
-            // 
-            this.txtField.Location = new System.Drawing.Point(89, 146);
-            this.txtField.Name = "txtField";
-            this.txtField.Size = new System.Drawing.Size(160, 20);
-            this.txtField.TabIndex = 4;
-            // 
-            // txtMobile
-            // 
-            this.txtMobile.Location = new System.Drawing.Point(89, 114);
-            this.txtMobile.Name = "txtMobile";
-            this.txtMobile.Size = new System.Drawing.Size(160, 20);
-            this.txtMobile.TabIndex = 3;
-            // 
-            // txtNationalCode
-            // 
-            this.txtNationalCode.Location = new System.Drawing.Point(89, 85);
-            this.txtNationalCode.Name = "txtNationalCode";
-            this.txtNationalCode.Size = new System.Drawing.Size(160, 20);
-            this.txtNationalCode.TabIndex = 2;
-            // 
-            // txtLastName
-            // 
-            this.txtLastName.Location = new System.Drawing.Point(89, 49);
-            this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(160, 20);
-            this.txtLastName.TabIndex = 1;
-            // 
-            // txtFirstName
-            // 
-            this.txtFirstName.Location = new System.Drawing.Point(89, 15);
-            this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(160, 20);
-            this.txtFirstName.TabIndex = 0;
+          
             // 
             // FrmTeacher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(422, 531);
-            this.Controls.Add(this.txtAddress);
-            this.Controls.Add(this.txtField);
-            this.Controls.Add(this.txtMobile);
-            this.Controls.Add(this.txtNationalCode);
-            this.Controls.Add(this.txtLastName);
-            this.Controls.Add(this.txtFirstName);
             this.Controls.Add(this.gbGender);
             this.Controls.Add(this.lblAddress);
             this.Controls.Add(this.lblField);
@@ -278,11 +227,5 @@
         private System.Windows.Forms.Label lblFamilyName;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblField;
-        private CustomTextBox txtNationalCode;
-        private CustomTextBox txtLastName;
-        private CustomTextBox txtFirstName;
-        private CustomTextBox txtMobile;
-        private CustomTextBox txtField;
-        private CustomTextBox txtAddress;
     }
 }

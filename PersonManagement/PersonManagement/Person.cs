@@ -30,12 +30,12 @@
 
             if (string.IsNullOrWhiteSpace(FirstName))
             {
-                return OperationResult.Failed("لطفا نام را وارد کنید");
+                return OperationResult.Failed(Messages.PleaseEnterFirstName);
             }
             else if (string.IsNullOrWhiteSpace(LastName))
             {
 
-                return OperationResult.Failed("لطفا نام خانوادگی را وارد کنید");
+                return OperationResult.Failed(Messages.PleaseEnterLastName);
             }
             else if (!checkValidNationalCode.IsSuccess)
             {
@@ -45,11 +45,11 @@
             else if (Gender == Genders.None)
             {
 
-                return OperationResult.Failed("لطفا جنسیت را انتخاب کنید");
+                return OperationResult.Failed(Messages.pleaseSelectGender);
             }
             else
             {
-                return OperationResult.Success("اطلاعات وارد شده معتبر است");
+                return OperationResult.Success(Messages.InformationIsValid);
             }
         }
     }
