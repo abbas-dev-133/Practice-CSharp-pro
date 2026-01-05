@@ -13,31 +13,28 @@ namespace PersonManagement
     public partial class FrmTeacher : Form
     {
         TeacherManager teacherManager;
-        public string MobileNumber {  get; set; }
-        private Teacher teacherToEdit;
-        private Teacher editedTeacher;
+        public string MobileNumber { get; set; }
+        private Teacher teacher;
+
         public FrmTeacher()
         {
             InitializeComponent();
             teacherManager = new TeacherManager();
         }
+
         private void frmNewPerson_Load(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(MobileNumber))
             {
                 btnSaveAndNew.Visible = false;
                 var result = teacherManager.GetByMobile(MobileNumber);
-
                 if (!result.IsSuccess)
                 {
                     MessageBoxHelper.Error(result.Message);
                     Close();
                     return;
                 }
-
-                teacherToEdit = result.Data;
-                var clone = teacherToEdit.Clone();
-
+                var clone = result.Data.Clone();
                 txtFirstName.Text = clone.FirstName;
                 txtLastName.Text = clone.LastName;
                 txtNationalCode.Text = clone.NationalCode;
@@ -45,75 +42,50 @@ namespace PersonManagement
                 txtField.Text = clone.Field;
                 txtAddress.Text = clone.Address;
                 txtMobile.Enabled = false;
-                if (clone.Gender == Genders.Male)
-                    rbMale.Checked = true;
-                else if (clone.Gender == Genders.Female)
-                    rbFemale.Checked = true;
-                else if (clone.Gender == Genders.Unknown)
-                    rbUnknown.Checked = true;
-                editedTeacher = clone;
-
+                if (clone.Gender == Genders.Male) rbMale.Checked = true;
+                else if (clone.Gender == Genders.Female) rbFemale.Checked = true;
+                else rbUnknown.Checked = true;
+                teacher = clone;
             }
         }
+
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (editedTeacher == null)
-                editedTeacher = new Teacher(txtMobile.Text);
-            editedTeacher.FirstName = txtFirstName.Text;
-            editedTeacher.LastName = txtLastName.Text;
-            editedTeacher.NationalCode = txtNationalCode.Text;
-            editedTeacher.Address = txtAddress.Text;
-            editedTeacher.Mobile = txtMobile.Text;
-            editedTeacher.Field = txtField.Text;
-
-            if (rbMale.Checked)
-                editedTeacher.Gender = Genders.Male;
-            else if (rbFemale.Checked)
-                editedTeacher.Gender = Genders.Female;
-            else if (rbUnknown.Checked)
-                editedTeacher.Gender = Genders.Unknown;
-            else
-                editedTeacher.Gender = Genders.None;
-
+            if (teacher == null) teacher = new Teacher(txtMobile.Text);
+            teacher.FirstName = txtFirstName.Text;
+            teacher.LastName = txtLastName.Text;
+            teacher.NationalCode = txtNationalCode.Text;
+            teacher.Address = txtAddress.Text;
+            teacher.Mobile = txtMobile.Text;
+            teacher.Field = txtField.Text;
+            if (rbMale.Checked) teacher.Gender = Genders.Male;
+            else if (rbFemale.Checked) teacher.Gender = Genders.Female;
+            else if (rbUnknown.Checked) teacher.Gender = Genders.Unknown;
+            else teacher.Gender = Genders.None;
             OperationResult result;
-            if (teacherToEdit == null)
+            if (string.IsNullOrEmpty(MobileNumber))
             {
-                result = teacherManager.Add(editedTeacher);
-                if (!result.IsSuccess)
-                {
-                    MessageBoxHelper.Error(result.Message);
-                    return;
-                }
-                teacherToEdit = editedTeacher;
+                result = teacherManager.Add(teacher);
+                if (!result.IsSuccess) { MessageBoxHelper.Error(result.Message); return; }
             }
             else
             {
-
-                result = teacherManager.Edit(editedTeacher);
-                if (!result.IsSuccess)
-                {
-                    MessageBoxHelper.Error(result.Message);
-                    return;
-                }
+                result = teacherManager.Edit(teacher);
+                if (!result.IsSuccess) { MessageBoxHelper.Error(result.Message); return; }
             }
             DialogResult = DialogResult.OK;
         }
 
         private void txtName_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ')
-            {
-                e.Handled = true;
-            }
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ') e.Handled = true;
         }
 
         private void txtNationalCode_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
-            {
-                e.Handled = true;
-            }
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar)) e.Handled = true;
         }
+
         private void ResetFormForNewEntry()
         {
             txtFirstName.Clear();
@@ -125,17 +97,20 @@ namespace PersonManagement
             rbMale.Checked = false;
             rbFemale.Checked = false;
             rbUnknown.Checked = false;
+            teacher = null;
         }
+
         private void btnSaveAndNew_Click(object sender, EventArgs e)
         {
             btnSaveAndClose.PerformClick();
             if (DialogResult == DialogResult.OK)
             {
-                Save?.Invoke(teacherToEdit);
+                Save?.Invoke(teacher);
                 ResetFormForNewEntry();
                 DialogResult = DialogResult.None;
             }
         }
+
         public Action<Teacher> Save { get; set; }
     }
 }
