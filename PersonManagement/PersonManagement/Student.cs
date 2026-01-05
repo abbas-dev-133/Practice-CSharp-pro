@@ -15,12 +15,14 @@ namespace PersonManagement
             _studentCode = studentCode;
         }
         [Required(ErrorMessage = "کد دانشجویی را وارد کنید")]
+        [DgvDisplayName("کد دانش آموزی")]
         public string StudentCode
         {
             get { return _studentCode; } 
             set { _studentCode = value; }
         }
         [Required(ErrorMessage ="مقطع تحصیلی را وارد کنید")]
+        [DgvDisplayName("مقطع تحصیلی")]
         public string Grade { get; set; }
         public override string ToString()
         {

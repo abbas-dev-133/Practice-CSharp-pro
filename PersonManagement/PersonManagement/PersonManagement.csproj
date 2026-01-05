@@ -54,6 +54,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseValidation.cs" />
+    <Compile Include="DgvDisplayNameAttribute.cs" />
+    <Compile Include="DgvExtentions.cs" />
     <Compile Include="FrmMenu.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -25,6 +25,7 @@ namespace PersonManagement
         private void FillDgv()
         {
             dgvShowStudent.DataSource = studentManager.GetAll().ToList();
+            dgvShowStudent.BuildColumns<Student>();
         }
         private void SaveStudent(Student student)
         {

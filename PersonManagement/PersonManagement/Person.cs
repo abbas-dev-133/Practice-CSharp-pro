@@ -10,14 +10,17 @@ namespace PersonManagement
     public class Person: BaseValidation
     {
         [Required(ErrorMessage ="نام را وارد کنید")]
+        [DgvDisplayName("نام")]
         public string FirstName { get; set; }
         [Required(ErrorMessage ="نام خانوادگی را وارد کنید")]
+        [DgvDisplayName("نام خانوادگی")]
         public string LastName { get; set; }
         [NationalCodeValidation]
+        [DgvDisplayName("کد ملی")]
         public string NationalCode { get; set; }
         [GenderValidation]
         public Genders Gender { get; set; }
-
+        [DgvDisplayName("جنسیت")]
         public string GenderText
         {
             get

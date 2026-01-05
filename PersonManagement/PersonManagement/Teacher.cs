@@ -16,14 +16,17 @@ namespace PersonManagement
             _mobile = mobile;
         }
         [MobileValidation]
+        [DgvDisplayName("تلفن همراه")]
         public string Mobile 
         {
             get { return _mobile; }
             set { _mobile = value; }
         }
         [Required(ErrorMessage ="آدرس را وارد کنید")]
+        [DgvDisplayName("آدرس")]
         public string Address { get; set; }
         [Required(ErrorMessage = "رشته تحصیلی را وارد کنید")]
+        [DgvDisplayName("رشته تحصیلی")]
         public string Field { get; set; }
         public Teacher Clone()
         {

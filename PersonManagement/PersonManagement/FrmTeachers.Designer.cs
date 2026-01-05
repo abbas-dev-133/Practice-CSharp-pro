@@ -29,15 +29,6 @@
         private void InitializeComponent()
         {
             this.dgvShowStudent = new System.Windows.Forms.DataGridView();
-            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NatioanalCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GenderText = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Mobile = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Field = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.btnInsert = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -55,16 +46,6 @@
             this.dgvShowStudent.AllowUserToDeleteRows = false;
             this.dgvShowStudent.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvShowStudent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvShowStudent.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.FirstName,
-            this.LastName,
-            this.FullName,
-            this.NatioanalCode,
-            this.Gender,
-            this.GenderText,
-            this.Address,
-            this.Mobile,
-            this.Field});
             this.dgvShowStudent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvShowStudent.Location = new System.Drawing.Point(0, 0);
             this.dgvShowStudent.Name = "dgvShowStudent";
@@ -72,72 +53,6 @@
             this.dgvShowStudent.Size = new System.Drawing.Size(841, 418);
             this.dgvShowStudent.TabIndex = 2;
             this.dgvShowStudent.TabStop = false;
-            // 
-            // FirstName
-            // 
-            this.FirstName.DataPropertyName = "FirstName";
-            this.FirstName.HeaderText = "نام";
-            this.FirstName.Name = "FirstName";
-            this.FirstName.ReadOnly = true;
-            this.FirstName.Visible = false;
-            // 
-            // LastName
-            // 
-            this.LastName.DataPropertyName = "LastName";
-            this.LastName.HeaderText = "نام خانوادگی";
-            this.LastName.Name = "LastName";
-            this.LastName.ReadOnly = true;
-            this.LastName.Visible = false;
-            // 
-            // FullName
-            // 
-            this.FullName.DataPropertyName = "FullName";
-            this.FullName.HeaderText = "نام شخص";
-            this.FullName.Name = "FullName";
-            this.FullName.ReadOnly = true;
-            // 
-            // NatioanalCode
-            // 
-            this.NatioanalCode.DataPropertyName = "NationalCode";
-            this.NatioanalCode.HeaderText = "کدملی";
-            this.NatioanalCode.Name = "NatioanalCode";
-            this.NatioanalCode.ReadOnly = true;
-            // 
-            // Gender
-            // 
-            this.Gender.DataPropertyName = "Gender";
-            this.Gender.HeaderText = "جنس";
-            this.Gender.Name = "Gender";
-            this.Gender.ReadOnly = true;
-            this.Gender.Visible = false;
-            // 
-            // GenderText
-            // 
-            this.GenderText.DataPropertyName = "GenderText";
-            this.GenderText.HeaderText = "جنسیت";
-            this.GenderText.Name = "GenderText";
-            this.GenderText.ReadOnly = true;
-            // 
-            // Address
-            // 
-            this.Address.DataPropertyName = "Address";
-            this.Address.HeaderText = "آدرس";
-            this.Address.Name = "Address";
-            this.Address.ReadOnly = true;
-            // 
-            // Mobile
-            // 
-            this.Mobile.DataPropertyName = "Mobile";
-            this.Mobile.HeaderText = "موبایل";
-            this.Mobile.Name = "Mobile";
-            this.Mobile.ReadOnly = true;
-            // 
-            // Field
-            // 
-            this.Field.DataPropertyName = "Field";
-            this.Field.HeaderText = "رشته";
-            this.Field.Name = "Field";
-            this.Field.ReadOnly = true;
             // 
             // splitContainer1
             // 
@@ -151,7 +66,6 @@
             this.splitContainer1.Panel1.Controls.Add(this.btnInsert);
             this.splitContainer1.Panel1.Controls.Add(this.btnDelete);
             this.splitContainer1.Panel1.Controls.Add(this.btnEdit);
-          //  this.splitContainer1.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
             // 
             // splitContainer1.Panel2
             // 
@@ -220,14 +134,5 @@
         private System.Windows.Forms.Button btnInsert;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FullName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NatioanalCode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Gender;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GenderText;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Address;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Mobile;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Field;
     }
 }
