@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseValidation.cs" />
     <Compile Include="FrmMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +72,7 @@
     <Compile Include="FrmTeachers.Designer.cs">
       <DependentUpon>FrmTeachers.cs</DependentUpon>
     </Compile>
+    <Compile Include="GenderValidationAttribute.cs" />
     <Compile Include="MessageBoxHelper.cs" />
     <Compile Include="FrmStudent.cs">
       <SubType>Form</SubType>
@@ -86,6 +88,7 @@
     </Compile>
     <Compile Include="Genders.cs" />
     <Compile Include="Messages.cs" />
+    <Compile Include="MobileValidationAttribute.cs" />
     <Compile Include="NationalCodeExtension.cs" />
     <Compile Include="NationalCodeValidationAttribute.cs" />
     <Compile Include="OperationResult.cs" />

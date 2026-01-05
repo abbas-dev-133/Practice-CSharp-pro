@@ -119,7 +119,10 @@
         {
             get { return "شماره موبایل معتبر نیست"; }
         }
-
+        public static string MobileLengthInvalid
+        {
+            get { return "شماره موبایل باید 11 رقم باشد"; }
+        }
         public static string MobileNumberValid
         {
             get { return "شماره موبایل معتبر است"; }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -14,32 +15,16 @@ namespace PersonManagement
         {
             _mobile = mobile;
         }
+        [MobileValidation]
         public string Mobile 
         {
             get { return _mobile; }
             set { _mobile = value; }
         }
+        [Required(ErrorMessage ="آدرس را وارد کنید")]
         public string Address { get; set; }
+        [Required(ErrorMessage = "رشته تحصیلی را وارد کنید")]
         public string Field { get; set; }
-
-        public override OperationResult Validate()
-        {
-            var baseResult = base.Validate();
-            var checkValiMobile = Mobile.ValidIranianMobile();
-            if (!checkValiMobile.IsSuccess)
-                return checkValiMobile;
-            if (!baseResult.IsSuccess)
-                return baseResult;
-            if (string.IsNullOrWhiteSpace(Mobile))
-                return OperationResult.Failed(Messages.MobileNumberIsRequired);
-
-            if (string.IsNullOrWhiteSpace(Address))
-                return OperationResult.Failed(Messages.AddressIsRequired);
-            if (string.IsNullOrWhiteSpace(Field))
-                return OperationResult.Failed(Messages.FieldOfStudyIsRequired);
-
-            return OperationResult.Success(Messages.InformationIsValid);
-        }
         public Teacher Clone()
         {
             return new Teacher(this.Mobile)

@@ -28,9 +28,8 @@ namespace PersonManagement
         }
         public OperationResult Add(Student student)
         {
-            var validation = student.Validate();
-            if (!validation.IsSuccess)
-                return validation;
+            if (!student.IsValid)
+                return OperationResult.Failed(student.Error);
             foreach (var item in students)
             {
                 if (student.StudentCode == item.StudentCode)
@@ -47,9 +46,8 @@ namespace PersonManagement
         }
         public OperationResult Edit(Student student)
         {
-            var validation = student.Validate();
-            if (!validation.IsSuccess)
-                return validation;
+            if (!student.IsValid)
+                return OperationResult.Failed(student.Error);
             Student studentToEdit = null;
             foreach (var item in students)
             {

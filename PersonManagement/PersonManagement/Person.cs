@@ -7,7 +7,7 @@ using System.Web.ModelBinding;
 
 namespace PersonManagement
 {
-    public class Person
+    public class Person: BaseValidation
     {
         [Required(ErrorMessage ="نام را وارد کنید")]
         public string FirstName { get; set; }
@@ -15,6 +15,7 @@ namespace PersonManagement
         public string LastName { get; set; }
         [NationalCodeValidation]
         public string NationalCode { get; set; }
+        [GenderValidation]
         public Genders Gender { get; set; }
 
         public string GenderText
@@ -34,25 +35,5 @@ namespace PersonManagement
 
         }
         public virtual string FullName => $"{FirstName} {LastName}";
-        public virtual OperationResult Validate()
-        {
-            List<ValidationResult> validationResults = new List<ValidationResult>();
-            StringBuilder stringBuilder = new StringBuilder();
-            bool isValid = Validator.TryValidateObject(this, new ValidationContext(this), validationResults, true);
-            foreach (var validationResult in validationResults)
-            {
-                stringBuilder.AppendLine(validationResult.ErrorMessage);
-                return OperationResult.Failed(stringBuilder.ToString());
-            }
-             if (Gender == Genders.None)
-            {
-
-                return OperationResult.Failed(Messages.PleaseSelectGender);
-            }
-            else
-            {
-                return OperationResult.Success(Messages.InformationIsValid);
-            }
-        }
     }
 }

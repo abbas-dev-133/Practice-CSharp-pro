@@ -7,23 +7,24 @@ using System.Threading.Tasks;
 
 namespace PersonManagement
 {
-    public class NationalCodeValidationAttribute: ValidationAttribute
+    public class MobileValidationAttribute: ValidationAttribute
     {
         public override bool IsValid(object value)
         {
+
             if (value == null)
             {
-                ErrorMessage = Messages.NationalCodeInvalid;
-                return false; 
-            }
-            var nationalCode = (string)value;
-            var result = nationalCode.ValidateNationalCode();
-            if(nationalCode.Length>10)
-            {
-                ErrorMessage = Messages.NationalCodeLengthInvalid;
+                ErrorMessage = Messages.MobileNumberInvalid;
                 return false;
             }
-            if(!result.IsSuccess)
+            var mobile = (string)value;
+            var result = mobile.ValidIranianMobile();
+            if (mobile.Length > 11)
+            {
+                ErrorMessage = Messages.MobileLengthInvalid;
+                return false;
+            }
+            if (!result.IsSuccess)
             {
                 ErrorMessage = result.Message;
                 return false;

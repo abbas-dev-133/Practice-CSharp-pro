@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,11 +14,13 @@ namespace PersonManagement
         {
             _studentCode = studentCode;
         }
+        [Required(ErrorMessage = "کد دانشجویی را وارد کنید")]
         public string StudentCode
         {
             get { return _studentCode; } 
             set { _studentCode = value; }
         }
+        [Required(ErrorMessage ="مقطع تحصیلی را وارد کنید")]
         public string Grade { get; set; }
         public override string ToString()
         {
@@ -31,22 +34,6 @@ namespace PersonManagement
             return false;
         }
         public override string FullName => $"{base.FullName} - {Grade}";
-
-
-        public override OperationResult Validate()
-        {
-            var baseResult = base.Validate();
-            if (!baseResult.IsSuccess)
-                return baseResult;
-
-            if (string.IsNullOrWhiteSpace(StudentCode))
-                return OperationResult.Failed(Messages.StudentCodeIsRequired);
-
-            if (string.IsNullOrWhiteSpace(Grade))
-                return OperationResult.Failed(Messages.GradeIsRequired);
-
-            return OperationResult.Success(Messages.InformationIsValid);
-        }
         public Student Clone()
         {
             return new Student(this.StudentCode)

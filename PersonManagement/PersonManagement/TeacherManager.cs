@@ -27,9 +27,8 @@ namespace PersonManagement
         }
         public OperationResult Add(Teacher teacher)
         {
-            var validation = teacher.Validate();
-            if (!validation.IsSuccess)
-                return validation;
+            if (!teacher.IsValid)
+                return OperationResult.Failed(teacher.Error);
             foreach (var item in teachers)
             {
                 if (teacher.Mobile == item.Mobile)
@@ -46,9 +45,8 @@ namespace PersonManagement
         }
         public OperationResult Edit(Teacher teacher)
         {
-            var validation = teacher.Validate();
-            if (!validation.IsSuccess)
-                return validation;
+            if (!teacher.IsValid)
+                return OperationResult.Failed(teacher.Error);
             Teacher teacherToEdit = null;
             foreach (var item in teachers)
             {
